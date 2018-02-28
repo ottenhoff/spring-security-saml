@@ -20,7 +20,7 @@ import org.opensaml.core.config.Configuration;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml.common.SAMLVersion;
-import org.opensaml.common.binding.artifact.SAMLArtifactMap;
+import org.opensaml.saml.common.binding.artifact.SAMLArtifactMap;
 import net.shibboleth.utilities.java.support.net.BasicURLComparator;
 import net.shibboleth.utilities.java.support.net.URIComparator;
 import org.opensaml.saml.common.xml.SAMLConstants;
