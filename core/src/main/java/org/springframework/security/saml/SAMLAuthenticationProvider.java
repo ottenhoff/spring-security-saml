@@ -15,8 +15,8 @@
 package org.springframework.security.saml;
 
 import org.joda.time.DateTime;
-import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLRuntimeException;
+import org.opensaml.saml.common.SAMLException;
+import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.saml2.core.AuthnStatement;
 import org.opensaml.xml.encryption.DecryptionException;
 import org.opensaml.xml.validation.ValidationException;

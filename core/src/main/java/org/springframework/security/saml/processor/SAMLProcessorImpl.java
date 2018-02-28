@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.processor;
 
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
@@ -138,7 +138,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      * @param samlContext saml context
      * @param binding     to use for message extraction
      * @return SAML message context with filled information about the message
-     * @throws org.opensaml.common.SAMLException
+     * @throws org.opensaml.saml.common.SAMLException
      *          error retrieving the message from the request
      * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat
@@ -158,7 +158,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      *
      * @param samlContext saml context
      * @return SAML message context with filled information about the message
-     * @throws org.opensaml.common.SAMLException
+     * @throws org.opensaml.saml.common.SAMLException
      *          error retrieving the message from the request
      * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat

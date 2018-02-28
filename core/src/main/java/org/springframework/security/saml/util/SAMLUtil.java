@@ -16,8 +16,8 @@
 package org.springframework.security.saml.util;
 
 import org.joda.time.DateTime;
-import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLRuntimeException;
+import org.opensaml.saml.common.SAMLException;
+import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.common.binding.decoding.BasicURLComparator;
 import org.opensaml.common.binding.decoding.URIComparator;
 import org.opensaml.saml.common.xml.SAMLConstants;
@@ -156,7 +156,7 @@ public class SAMLUtil {
      * @param ssoDescriptor descriptor
      * @param index         to load, can be null
      * @return consumer service
-     * @throws org.opensaml.common.SAMLRuntimeException
+     * @throws org.opensaml.saml.common.SAMLRuntimeException
      *          in case assertionConsumerService with given index isn't found
      */
     public static AssertionConsumerService getConsumerService(SPSSODescriptor ssoDescriptor, Integer index) {

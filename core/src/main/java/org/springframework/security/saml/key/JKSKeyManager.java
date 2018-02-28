@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.key;
 
-import org.opensaml.common.SAMLRuntimeException;
+import org.opensaml.saml.common.SAMLRuntimeException;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;

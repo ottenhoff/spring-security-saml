@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.websso;
 
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml2.core.*;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.encryption.DecryptionException;
@@ -52,7 +52,7 @@ public class WebSSOProfileConsumerHoKImpl extends WebSSOProfileConsumerImpl impl
      * @param subject subject to validate
      * @param request request
      * @param context context
-     * @throws org.opensaml.common.SAMLException
+     * @throws org.opensaml.saml.common.SAMLException
      *          error validating the object
      * @throws org.opensaml.xml.encryption.DecryptionException
      *          in case the NameID can't be decrypted

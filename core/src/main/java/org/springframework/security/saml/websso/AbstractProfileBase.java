@@ -17,9 +17,9 @@ package org.springframework.security.saml.websso;
 
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObjectBuilder;
-import org.opensaml.common.SAMLVersion;
+import org.opensaml.saml.common.SAMLVersion;
 import org.opensaml.common.binding.artifact.SAMLArtifactMap;
 import org.opensaml.common.binding.decoding.BasicURLComparator;
 import org.opensaml.common.binding.decoding.URIComparator;

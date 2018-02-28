@@ -17,7 +17,7 @@ package org.springframework.security.saml;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.AuthnStatement;
 import org.opensaml.saml2.core.NameID;

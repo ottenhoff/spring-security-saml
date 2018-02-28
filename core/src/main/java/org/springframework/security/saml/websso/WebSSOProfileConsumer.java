@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.websso;
 
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.xml.encryption.DecryptionException;
 import org.opensaml.xml.validation.ValidationException;
 import org.springframework.security.saml.SAMLCredential;

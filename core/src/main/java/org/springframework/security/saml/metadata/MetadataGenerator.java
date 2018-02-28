@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.opensaml.Configuration;
 import org.opensaml.saml.common.SAMLObjectBuilder;
-import org.opensaml.common.SAMLRuntimeException;
+import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.common.Extensions;
 import org.opensaml.saml2.common.impl.ExtensionsBuilder;

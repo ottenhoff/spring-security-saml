@@ -16,7 +16,7 @@ package org.springframework.security.saml.websso;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;

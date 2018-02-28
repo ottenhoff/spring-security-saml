@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.websso;
 
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.springframework.security.saml.context.SAMLMessageContext;

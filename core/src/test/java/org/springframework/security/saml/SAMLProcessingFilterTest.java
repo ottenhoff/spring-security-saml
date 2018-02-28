@@ -18,7 +18,7 @@ import org.easymock.Capture;
 import org.easymock.IAnswer;
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

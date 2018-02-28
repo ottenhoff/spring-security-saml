@@ -14,10 +14,10 @@
  */
 package org.springframework.security.saml.websso;
 
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObjectBuilder;
-import org.opensaml.common.SAMLRuntimeException;
-import org.opensaml.common.SAMLVersion;
+import org.opensaml.saml.common.SAMLRuntimeException;
+import org.opensaml.saml.common.SAMLVersion;
 import org.opensaml.saml2.core.*;
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;

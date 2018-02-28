@@ -17,7 +17,7 @@ package org.springframework.security.saml.websso;
 
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
-import org.opensaml.common.SAMLException;
+import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObject;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.binding.artifact.SAML2ArtifactType0004;
@@ -139,7 +139,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      *
      * @param endpointURI URI incoming artifactMessage is addressed to
      * @param context     context with filled communicationProfileId, outboundMessage, outboundSAMLMessage, peerEntityEndpoint, peerEntityId, peerEntityMetadata, peerEntityRole, peerEntityRoleMetadata
-     * @throws org.opensaml.common.SAMLException
+     * @throws org.opensaml.saml.common.SAMLException
      *          error processing artifact messages
      * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *          error sending artifactRequest
