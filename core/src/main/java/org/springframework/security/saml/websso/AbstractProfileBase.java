@@ -29,7 +29,7 @@ import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.MetadataCriteria;
-import org.opensaml.security.SAMLSignatureProfileValidator;
+import org.opensaml.saml.security.impl.SAMLSignatureProfileValidator;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
