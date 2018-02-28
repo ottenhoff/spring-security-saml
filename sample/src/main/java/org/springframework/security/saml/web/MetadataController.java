@@ -18,7 +18,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.xml.io.MarshallingException;
+import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.security.credential.Credential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
