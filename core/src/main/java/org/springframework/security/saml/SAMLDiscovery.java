@@ -21,7 +21,7 @@ import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.samlext.idpdisco.DiscoveryResponse;
 import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.core.xml.XMLObject;
-import org.opensaml.xml.util.Pair;
+import net.shibboleth.utilities.java.support.collection.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
