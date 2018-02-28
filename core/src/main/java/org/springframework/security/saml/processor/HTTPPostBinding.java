@@ -29,7 +29,7 @@ import org.opensaml.ws.transport.http.HTTPInTransport;
 import org.opensaml.ws.transport.http.HTTPOutTransport;
 import org.opensaml.ws.transport.http.HTTPTransport;
 import net.shibboleth.utilities.java.support.xml.ParserPool;
-import org.opensaml.xml.signature.SignatureTrustEngine;
+import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
 import org.springframework.security.saml.context.SAMLMessageContext;
 
 import java.util.List;

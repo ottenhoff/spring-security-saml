@@ -20,7 +20,7 @@ import org.opensaml.saml.saml2.metadata.provider.*;
 import org.opensaml.xml.Configuration;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.security.x509.*;
-import org.opensaml.xml.signature.SignatureTrustEngine;
+import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
 import org.opensaml.xml.signature.impl.PKIXSignatureTrustEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

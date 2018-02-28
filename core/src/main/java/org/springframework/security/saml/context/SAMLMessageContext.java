@@ -21,7 +21,7 @@ import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.security.trust.TrustEngine;
 import org.opensaml.xml.security.x509.X509Credential;
-import org.opensaml.xml.signature.SignatureTrustEngine;
+import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
 import org.springframework.security.saml.metadata.ExtendedMetadata;
 import org.springframework.security.saml.storage.SAMLMessageStorage;
 

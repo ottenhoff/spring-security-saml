@@ -18,8 +18,8 @@ import org.opensaml.xml.security.*;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.security.keyinfo.KeyInfoCredentialResolver;
-import org.opensaml.xml.signature.Signature;
-import org.opensaml.xml.signature.SignatureTrustEngine;
+import org.opensaml.xmlsec.signature.Signature;
+import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
 
 /**
  * Special type of trust engine which always trusts the credential and thus skips the verification.

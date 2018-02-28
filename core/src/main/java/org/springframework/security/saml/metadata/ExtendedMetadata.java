@@ -472,7 +472,7 @@ public class ExtendedMetadata implements Serializable, Cloneable {
      * At the moment the value is only used for signatures on metadata.
      *
      * @return A signing algorithm URI, if set. Otherwise returns null.
-     * @see org.opensaml.xml.signature.SignatureConstants
+     * @see org.opensaml.xmlsec.signature.SignatureConstants
      */
     public String getSigningAlgorithm() {
         return signingAlgorithm;
@@ -493,7 +493,7 @@ public class ExtendedMetadata implements Serializable, Cloneable {
      * http://www.w3.org/2001/04/xmldsig-more#rsa-sha512
      *
      * @param signingAlgorithm The new signing algorithm to use
-     * @see org.opensaml.xml.signature.SignatureConstants
+     * @see org.opensaml.xmlsec.signature.SignatureConstants
      */
     public void setSigningAlgorithm(String signingAlgorithm) {
         this.signingAlgorithm = signingAlgorithm;
