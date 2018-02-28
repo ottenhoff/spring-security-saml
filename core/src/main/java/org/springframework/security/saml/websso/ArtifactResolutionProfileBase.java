@@ -30,7 +30,7 @@ import org.opensaml.saml2.metadata.Endpoint;
 import org.opensaml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.util.Base64;
@@ -143,7 +143,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      *          error processing artifact messages
      * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *          error sending artifactRequest
-     * @throws org.opensaml.ws.message.decoder.MessageDecodingException
+     * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error retrieveing articatResponse
      * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
      *          error resolving metadata

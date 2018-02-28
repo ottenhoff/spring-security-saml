@@ -28,7 +28,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.MetadataCriteria;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.soap.client.http.TLSProtocolSocketFactory;
 import org.opensaml.ws.transport.http.HttpClientInTransport;

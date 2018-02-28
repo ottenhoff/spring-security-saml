@@ -20,7 +20,7 @@ import org.opensaml.saml2.metadata.Endpoint;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecoder;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.message.encoder.MessageEncoder;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.security.SecurityPolicy;
@@ -142,7 +142,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      *          error retrieving the message from the request
      * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat
-     * @throws org.opensaml.ws.message.decoder.MessageDecodingException
+     * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error decoding the message
      * @throws org.opensaml.security.SecurityException
      *          error verifying message
@@ -162,7 +162,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      *          error retrieving the message from the request
      * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat
-     * @throws org.opensaml.ws.message.decoder.MessageDecodingException
+     * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error decoding the message
      * @throws org.opensaml.security.SecurityException
      *          error verifying message

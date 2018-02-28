@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 
 import org.opensaml.common.BaseTestCase;
 import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;
 import org.opensaml.security.SecurityException;
 import org.springframework.mock.web.MockHttpServletRequest;

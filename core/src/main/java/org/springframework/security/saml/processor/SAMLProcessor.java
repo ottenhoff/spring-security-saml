@@ -16,7 +16,7 @@ package org.springframework.security.saml.processor;
 
 import org.opensaml.common.SAMLException;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.springframework.security.saml.context.SAMLMessageContext;
 

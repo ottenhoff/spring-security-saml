@@ -23,7 +23,7 @@ import org.opensaml.common.binding.decoding.URIComparator;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.*;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.InTransport;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;

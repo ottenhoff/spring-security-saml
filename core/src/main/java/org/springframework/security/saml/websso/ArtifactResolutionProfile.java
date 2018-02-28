@@ -16,7 +16,7 @@
 package org.springframework.security.saml.websso;
 
 import org.opensaml.saml.common.SAMLObject;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.springframework.security.saml.context.SAMLMessageContext;
 
 /**

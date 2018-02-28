@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.parser;
 
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.xml.Configuration;
 import org.opensaml.xml.XMLObject;
 import org.opensaml.xml.io.Unmarshaller;
@@ -82,7 +82,7 @@ public abstract class SAMLBase<T extends XMLObject, U> implements Serializable {
      *
      * @return the inbound message
      *
-     * @throws org.opensaml.ws.message.decoder.MessageDecodingException
+     * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          thrown if there is a problem deserializing and unmarshalling the message
      */
     protected T unmarshallMessage(Reader messageStream) throws MessageDecodingException {

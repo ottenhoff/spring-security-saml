@@ -19,7 +19,7 @@ import org.opensaml.saml.common.SAMLObject;
 import org.opensaml.common.binding.SAMLMessageContext;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.ws.message.MessageContext;
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.transport.http.HTTPInTransport;
 import org.opensaml.ws.transport.http.HTTPOutTransport;
 import net.shibboleth.utilities.java.support.xml.ParserPool;

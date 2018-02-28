@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.parser;
 
-import org.opensaml.ws.message.decoder.MessageDecodingException;
+import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.XMLObject;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
