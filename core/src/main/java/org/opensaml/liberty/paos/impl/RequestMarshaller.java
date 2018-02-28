@@ -20,7 +20,7 @@ import org.opensaml.common.impl.AbstractSAMLObjectMarshaller;
 import org.opensaml.liberty.paos.Request;
 import org.opensaml.xml.XMLObject;
 import org.opensaml.xml.io.MarshallingException;
-import org.opensaml.xml.util.XMLHelper;
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.w3c.dom.Element;
 
 /**

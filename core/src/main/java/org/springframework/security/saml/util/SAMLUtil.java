@@ -36,7 +36,7 @@ import org.opensaml.xml.security.SecurityHelper;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.signature.*;
 import org.opensaml.xml.util.DatatypeHelper;
-import org.opensaml.xml.util.XMLHelper;
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.saml.key.KeyManager;
@@ -397,7 +397,7 @@ public class SAMLUtil {
             }
             Element messageElem = marshaller.marshall(message);
             if (logger.isTraceEnabled()) {
-                logger.trace("Marshalled message into DOM:\n{}", XMLHelper.nodeToString(messageElem));
+                logger.trace("Marshalled message into DOM:\n{}", SerializeSupport.nodeToString(messageElem));
             }
             return messageElem;
         } catch (MarshallingException e) {
@@ -567,7 +567,7 @@ public class SAMLUtil {
             throw new MarshallingException("Unable to marshall message", e);
         }
 
-        return XMLHelper.nodeToString(element);
+        return SerializeSupport.nodeToString(element);
 
     }
 

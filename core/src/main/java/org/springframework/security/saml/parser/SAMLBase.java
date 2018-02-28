@@ -22,7 +22,7 @@ import org.opensaml.xml.io.Unmarshaller;
 import org.opensaml.xml.io.UnmarshallingException;
 import org.opensaml.xml.parse.ParserPool;
 import org.opensaml.xml.parse.XMLParserException;
-import org.opensaml.xml.util.XMLHelper;
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -93,7 +93,7 @@ public abstract class SAMLBase<T extends XMLObject, U> implements Serializable {
             Element messageElem = messageDoc.getDocumentElement();
 
             if (log.isTraceEnabled()) {
-                log.trace("Unmarshalled message into DOM:\n{}", XMLHelper.nodeToString(messageElem));
+                log.trace("Unmarshalled message into DOM:\n{}", SerializeSupport.nodeToString(messageElem));
             }
 
             log.debug("Unmarshalling message DOM");

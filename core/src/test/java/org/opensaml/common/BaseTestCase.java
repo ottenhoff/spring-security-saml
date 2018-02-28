@@ -32,7 +32,7 @@ import org.opensaml.xml.io.UnmarshallerFactory;
 import org.opensaml.xml.io.UnmarshallingException;
 import org.opensaml.xml.parse.BasicParserPool;
 import org.opensaml.xml.parse.XMLParserException;
-import org.opensaml.xml.util.XMLHelper;
+import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -113,7 +113,7 @@ public abstract class BaseTestCase extends XMLTestCase {
         try {
             Element generatedDOM = marshaller.marshall(xmlObject, parser.newDocument());
             if(log.isDebugEnabled()) {
-                log.debug("Marshalled DOM was " + XMLHelper.nodeToString(generatedDOM));
+                log.debug("Marshalled DOM was " + SerializeSupport.nodeToString(generatedDOM));
             }
             assertXMLEqual(failMessage, expectedDOM, generatedDOM.getOwnerDocument());
         } catch (Exception e) {
