@@ -17,7 +17,7 @@ package org.springframework.security.saml.websso;
 import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.core.*;

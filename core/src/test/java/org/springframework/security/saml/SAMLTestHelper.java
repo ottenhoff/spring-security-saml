@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml;
 
-import org.opensaml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.DefaultBootstrap;
 import org.opensaml.xml.ConfigurationException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;

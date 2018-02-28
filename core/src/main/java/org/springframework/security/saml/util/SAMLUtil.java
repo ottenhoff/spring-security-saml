@@ -424,7 +424,7 @@ public class SAMLUtil {
 
         if (signingCredential != null && !signableMessage.isSigned()) {
 
-            XMLObjectBuilder<Signature> signatureBuilder = org.opensaml.Configuration.getBuilderFactory().getBuilder(
+            XMLObjectBuilder<Signature> signatureBuilder = org.opensaml.core.config.Configuration.getBuilderFactory().getBuilder(
                     Signature.DEFAULT_ELEMENT_NAME);
             Signature signature = signatureBuilder.buildObject(Signature.DEFAULT_ELEMENT_NAME);
 

@@ -514,7 +514,7 @@ public class ExtendedMetadata implements Serializable, Cloneable {
      * KeyInfo elements in metadata and signatures.
      *
      * @return key info generator name
-     * @see org.opensaml.Configuration#getGlobalSecurityConfiguration()
+     * @see org.opensaml.core.config.Configuration#getGlobalSecurityConfiguration()
      * @see org.opensaml.xml.security.SecurityConfiguration#getKeyInfoGeneratorManager()
      */
     public String getKeyInfoGeneratorName() {

@@ -16,7 +16,7 @@
 
 package org.opensaml.liberty.binding.encoding;
 
-import org.opensaml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.saml.common.SAMLObject;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.binding.SAMLMessageContext;
