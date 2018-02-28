@@ -20,7 +20,7 @@ import org.junit.Test;
 import org.opensaml.core.config.Configuration;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLObjectBuilder;
-import org.opensaml.saml2.core.*;
+import org.opensaml.saml.saml2.core.*;
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.springframework.context.ApplicationContext;

@@ -15,7 +15,7 @@
 package org.springframework.security.saml.websso;
 
 import org.opensaml.saml.common.SAMLException;
-import org.opensaml.saml2.core.*;
+import org.opensaml.saml.saml2.core.*;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.encryption.DecryptionException;
 import org.opensaml.xml.signature.KeyInfo;

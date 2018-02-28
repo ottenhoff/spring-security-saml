@@ -15,9 +15,9 @@
 package org.springframework.security.saml;
 
 import org.opensaml.saml.common.SAMLException;
-import org.opensaml.saml2.core.LogoutRequest;
-import org.opensaml.saml2.core.LogoutResponse;
-import org.opensaml.saml2.core.StatusCode;
+import org.opensaml.saml.saml2.core.LogoutRequest;
+import org.opensaml.saml.saml2.core.LogoutResponse;
+import org.opensaml.saml.saml2.core.StatusCode;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.slf4j.Logger;

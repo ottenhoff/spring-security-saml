@@ -24,7 +24,7 @@ import org.opensaml.saml.common.binding.artifact.SAMLArtifactMap;
 import net.shibboleth.utilities.java.support.net.BasicURLComparator;
 import net.shibboleth.utilities.java.support.net.URIComparator;
 import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.saml2.core.*;
+import org.opensaml.saml.saml2.core.*;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;

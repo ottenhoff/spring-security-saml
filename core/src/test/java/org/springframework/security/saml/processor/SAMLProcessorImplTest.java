@@ -17,7 +17,7 @@ package org.springframework.security.saml.processor;
 import org.junit.Before;
 import org.junit.Test;
 import org.opensaml.saml.common.SAMLException;
-import org.opensaml.saml2.core.Response;
+import org.opensaml.saml.saml2.core.Response;
 import org.opensaml.ws.message.decoder.MessageDecoder;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;
 import org.opensaml.security.SecurityException;
