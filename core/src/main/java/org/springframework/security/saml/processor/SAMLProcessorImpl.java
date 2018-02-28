@@ -16,9 +16,9 @@ package org.springframework.security.saml.processor;
 
 import org.opensaml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.saml2.metadata.Endpoint;
-import org.opensaml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.Endpoint;
+import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecoder;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.message.encoder.MessageEncoder;
@@ -140,7 +140,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      * @return SAML message context with filled information about the message
      * @throws org.opensaml.common.SAMLException
      *          error retrieving the message from the request
-     * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
+     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat
      * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error decoding the message
@@ -160,7 +160,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      * @return SAML message context with filled information about the message
      * @throws org.opensaml.common.SAMLException
      *          error retrieving the message from the request
-     * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
+     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          error retrieving metadat
      * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error decoding the message
@@ -275,7 +275,7 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      * @return binding
      * @throws SAMLException in case binding can't be found
      * @throws MetadataProviderException in case binding of the endpoint can't be determined
-     * @see SAMLUtil#getBindingForEndpoint(org.opensaml.saml2.metadata.Endpoint)
+     * @see SAMLUtil#getBindingForEndpoint(org.opensaml.saml.saml2.metadata.Endpoint)
      */
     protected SAMLBinding getBinding(Endpoint endpoint) throws SAMLException, MetadataProviderException {
         return getBinding(SAMLUtil.getBindingForEndpoint(endpoint));

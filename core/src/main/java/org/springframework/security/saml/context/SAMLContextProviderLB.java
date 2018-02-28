@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.context;
 
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 

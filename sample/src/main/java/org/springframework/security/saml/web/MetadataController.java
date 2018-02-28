@@ -15,9 +15,9 @@
 package org.springframework.security.saml.web;
 
 import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.EntityDescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.xml.io.MarshallingException;
 import org.opensaml.security.credential.Credential;
 import org.slf4j.Logger;
@@ -352,7 +352,7 @@ public class MetadataController {
         StringBuilder sb = new StringBuilder();
         sb.append("<bean class=\"org.springframework.security.saml.metadata.ExtendedMetadataDelegate\">\n" +
                 "    <constructor-arg>\n" +
-                "        <bean class=\"org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider\">\n" +
+                "        <bean class=\"org.opensaml.saml.saml2.metadata.provider.ResourceBackedMetadataProvider\">\n" +
                 "            <constructor-arg>\n" +
                 "                <bean class=\"java.util.Timer\"/>\n" +
                 "            </constructor-arg>\n" +

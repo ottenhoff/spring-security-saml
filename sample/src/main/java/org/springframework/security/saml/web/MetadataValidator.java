@@ -14,8 +14,8 @@
  */
 package org.springframework.security.saml.web;
 
-import org.opensaml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.EntityDescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.springframework.security.saml.metadata.MetadataManager;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

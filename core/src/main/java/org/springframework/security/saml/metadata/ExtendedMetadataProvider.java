@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.metadata;
 
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 
 /**
  * Provider capable of supplying metadata extensions including information about requirements of the given entity.

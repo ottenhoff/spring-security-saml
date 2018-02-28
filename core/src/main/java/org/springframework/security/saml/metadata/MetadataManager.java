@@ -15,10 +15,10 @@
 package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.saml2.metadata.*;
-import org.opensaml.saml2.metadata.provider.*;
+import org.opensaml.saml.saml2.metadata.*;
+import org.opensaml.saml.saml2.metadata.provider.*;
 import org.opensaml.xml.Configuration;
-import org.opensaml.xml.XMLObject;
+import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.security.x509.*;
 import org.opensaml.xml.signature.SignatureTrustEngine;
 import org.opensaml.xml.signature.impl.PKIXSignatureTrustEngine;

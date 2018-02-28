@@ -17,7 +17,7 @@ package org.springframework.security.saml;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.NameID;
-import org.opensaml.xml.XMLObject;
+import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.schema.XSAny;
 import org.opensaml.xml.schema.XSString;
 import org.springframework.security.saml.parser.SAMLCollection;

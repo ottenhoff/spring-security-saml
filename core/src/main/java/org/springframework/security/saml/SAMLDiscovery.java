@@ -16,11 +16,11 @@ package org.springframework.security.saml;
 
 import org.opensaml.common.SAMLException;
 import org.opensaml.common.SAMLRuntimeException;
-import org.opensaml.saml2.metadata.RoleDescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.RoleDescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.samlext.idpdisco.DiscoveryResponse;
 import org.opensaml.util.URLBuilder;
-import org.opensaml.xml.XMLObject;
+import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

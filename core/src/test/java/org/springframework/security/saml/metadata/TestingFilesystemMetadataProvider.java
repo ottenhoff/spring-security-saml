@@ -1,8 +1,8 @@
 package org.springframework.security.saml.metadata;
 
 import org.joda.time.DateTime;
-import org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.provider.FilesystemMetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 
 import java.io.File;
 import java.util.Timer;

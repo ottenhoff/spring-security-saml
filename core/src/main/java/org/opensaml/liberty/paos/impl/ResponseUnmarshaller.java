@@ -20,7 +20,7 @@ import javax.xml.namespace.QName;
 
 import org.opensaml.common.impl.AbstractSAMLObjectUnmarshaller;
 import org.opensaml.liberty.paos.Response;
-import org.opensaml.xml.XMLObject;
+import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.io.UnmarshallingException;
 import org.opensaml.xml.schema.XSBooleanValue;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;

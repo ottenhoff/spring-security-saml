@@ -25,14 +25,14 @@ import org.opensaml.saml2.binding.artifact.SAML2ArtifactType0004Builder;
 import org.opensaml.saml2.core.Artifact;
 import org.opensaml.saml2.core.ArtifactResolve;
 import org.opensaml.saml2.core.ArtifactResponse;
-import org.opensaml.saml2.metadata.ArtifactResolutionService;
-import org.opensaml.saml2.metadata.Endpoint;
-import org.opensaml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.ArtifactResolutionService;
+import org.opensaml.saml.saml2.metadata.Endpoint;
+import org.opensaml.saml.saml2.metadata.EntityDescriptor;
+import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
-import org.opensaml.xml.XMLObjectBuilderFactory;
+import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.util.Base64;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.metadata.ExtendedMetadata;
@@ -145,7 +145,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      *          error sending artifactRequest
      * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error retrieveing articatResponse
-     * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
+     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          error resolving metadata
      * @throws org.opensaml.security.SecurityException
      *          invalid message signature

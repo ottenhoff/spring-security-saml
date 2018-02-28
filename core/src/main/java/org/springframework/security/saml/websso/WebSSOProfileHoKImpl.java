@@ -14,9 +14,9 @@
  */
 package org.springframework.security.saml.websso;
 
-import org.opensaml.saml2.metadata.AssertionConsumerService;
-import org.opensaml.saml2.metadata.SingleSignOnService;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
+import org.opensaml.saml.saml2.metadata.SingleSignOnService;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.springframework.security.saml.SAMLConstants;
 import org.springframework.security.saml.util.SAMLUtil;
 

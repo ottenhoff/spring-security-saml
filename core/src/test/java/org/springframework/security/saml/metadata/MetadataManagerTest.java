@@ -17,9 +17,9 @@ package org.springframework.security.saml.metadata;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.saml2.metadata.provider.AbstractReloadingMetadataProvider;
-import org.opensaml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.provider.AbstractReloadingMetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

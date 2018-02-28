@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.NameIDType;
-import org.opensaml.saml2.metadata.*;
+import org.opensaml.saml.saml2.metadata.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -16,9 +16,9 @@
  */
 package org.springframework.security.saml.trust;
 
-import org.opensaml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.saml2.metadata.provider.ObservableMetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.provider.ObservableMetadataProvider;
 import org.opensaml.security.MetadataCriteria;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.SecurityException;

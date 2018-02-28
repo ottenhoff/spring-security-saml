@@ -18,11 +18,11 @@ package org.springframework.security.saml.context;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.encryption.Decrypter;
 import org.opensaml.saml2.encryption.EncryptedElementTypeEncryptedKeyResolver;
-import org.opensaml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml2.metadata.RoleDescriptor;
-import org.opensaml.saml2.metadata.SPSSODescriptor;
-import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.saml.saml2.metadata.EntityDescriptor;
+import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
+import org.opensaml.saml.saml2.metadata.RoleDescriptor;
+import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
+import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.MetadataCredentialResolver;
 import org.opensaml.ws.security.ServletRequestX509CredentialAdapter;
 import org.opensaml.ws.transport.http.HTTPInTransport;
@@ -299,7 +299,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * are used instead.
      *
      * @param samlContext context to populate
-     * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
+     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
      *          in case metadata do not contain expected entities or localAlias is specified but not found
      */
     protected void populateLocalEntity(SAMLMessageContext samlContext) throws MetadataProviderException {
