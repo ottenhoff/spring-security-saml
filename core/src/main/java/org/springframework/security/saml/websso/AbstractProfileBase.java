@@ -33,7 +33,7 @@ import org.opensaml.saml.security.impl.SAMLSignatureProfileValidator;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
-import org.opensaml.xml.security.credential.UsageType;
+import org.opensaml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.opensaml.xmlsec.signature.Signature;

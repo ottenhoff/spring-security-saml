@@ -34,7 +34,7 @@ import org.opensaml.ws.soap.client.http.TLSProtocolSocketFactory;
 import org.opensaml.ws.transport.http.HttpClientInTransport;
 import org.opensaml.ws.transport.http.HttpClientOutTransport;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
-import org.opensaml.xml.security.credential.UsageType;
+import org.opensaml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.springframework.security.saml.context.SAMLMessageContext;

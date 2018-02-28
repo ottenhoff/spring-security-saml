@@ -28,7 +28,7 @@ import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.security.SecurityHelper;
 import org.opensaml.security.credential.Credential;
-import org.opensaml.xml.security.credential.UsageType;
+import org.opensaml.security.credential.UsageType;
 import org.opensaml.xmlsec.keyinfo.KeyInfoGenerator;
 import org.opensaml.xmlsec.signature.KeyInfo;
 import net.shibboleth.utilities.java.support.collection.Pair;

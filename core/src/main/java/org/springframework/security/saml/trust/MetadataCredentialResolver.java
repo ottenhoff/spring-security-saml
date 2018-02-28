@@ -17,7 +17,7 @@ package org.springframework.security.saml.trust;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;
-import org.opensaml.xml.security.credential.UsageType;
+import org.opensaml.security.credential.UsageType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.saml.key.KeyManager;
