@@ -19,7 +19,7 @@ import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.util.URLBuilder;
+import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.http.HTTPInTransport;
 import org.opensaml.ws.transport.http.HTTPOutTransport;

@@ -24,7 +24,7 @@ import org.opensaml.saml.saml2.core.AuthnRequest;
 import org.opensaml.saml.saml2.core.NameIDType;
 import org.opensaml.saml.saml2.metadata.*;
 import org.opensaml.samlext.idpdisco.DiscoveryResponse;
-import org.opensaml.util.URLBuilder;
+import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.security.SecurityHelper;
 import org.opensaml.security.credential.Credential;
