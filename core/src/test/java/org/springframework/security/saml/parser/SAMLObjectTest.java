@@ -25,7 +25,7 @@ import org.opensaml.xml.io.Marshaller;
 import org.opensaml.xml.io.MarshallingException;
 import org.opensaml.xml.io.Unmarshaller;
 import org.opensaml.xml.io.UnmarshallingException;
-import org.opensaml.xml.parse.ParserPool;
+import net.shibboleth.utilities.java.support.xml.ParserPool;
 import org.springframework.security.saml.SAMLTestHelper;
 import org.springframework.security.saml.util.SAMLUtil;
 import org.w3c.dom.Element;

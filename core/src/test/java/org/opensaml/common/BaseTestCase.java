@@ -30,7 +30,7 @@ import org.opensaml.xml.io.MarshallerFactory;
 import org.opensaml.xml.io.Unmarshaller;
 import org.opensaml.xml.io.UnmarshallerFactory;
 import org.opensaml.xml.io.UnmarshallingException;
-import org.opensaml.xml.parse.BasicParserPool;
+import net.shibboleth.utilities.java.support.xml.BasicParserPool;
 import org.opensaml.xml.parse.XMLParserException;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;
