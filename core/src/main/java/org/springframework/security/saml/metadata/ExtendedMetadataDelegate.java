@@ -17,7 +17,7 @@ package org.springframework.security.saml.metadata;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.AbstractMetadataProvider;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,9 +132,9 @@ public class ExtendedMetadataDelegate extends AbstractMetadataDelegate implement
      *
      * @param entityID entity to load metadata for
      * @return extended metadata or null in case no default is given and entity can be located or is not present in the delegate
-     * @throws MetadataProviderException error
+     * @throws ResolverException error
      */
-    public ExtendedMetadata getExtendedMetadata(String entityID) throws MetadataProviderException {
+    public ExtendedMetadata getExtendedMetadata(String entityID) throws ResolverException {
 
         EntityDescriptor entityDescriptor = getEntityDescriptor(entityID);
         if (entityDescriptor == null) {
@@ -158,9 +158,9 @@ public class ExtendedMetadataDelegate extends AbstractMetadataDelegate implement
     /**
      * Method performs initialization of the provider it delegates to.
      *
-     * @throws MetadataProviderException in case initialization fails
+     * @throws ResolverException in case initialization fails
      */
-    public void initialize() throws MetadataProviderException {
+    public void initialize() throws ResolverException {
         if (getDelegate() instanceof AbstractMetadataProvider) {
             log.debug("Initializing delegate");
             AbstractMetadataProvider provider = (AbstractMetadataProvider) getDelegate();

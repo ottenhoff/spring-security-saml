@@ -104,9 +104,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * It is mandatory that method afterPropertiesSet is called after the construction.
      *
      * @param providers providers to include, mustn't be null or empty
-     * @throws MetadataProviderException error during initialization
+     * @throws ResolverException error during initialization
      */
-    public MetadataManager(List<MetadataProvider> providers) throws MetadataProviderException {
+    public MetadataManager(List<MetadataProvider> providers) throws ResolverException {
 
         super();
 
@@ -124,9 +124,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * Method must be called after provider construction. It creates the refresh timer and refreshes the metadata for
      * the first time.
      *
-     * @throws MetadataProviderException error
+     * @throws ResolverException error
      */
-    public final void afterPropertiesSet() throws MetadataProviderException {
+    public final void afterPropertiesSet() throws ResolverException {
 
         Assert.notNull(keyManager, "KeyManager must be set");
 
@@ -185,7 +185,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
     }
 
     @Override
-    public void setProviders(List<MetadataProvider> newProviders) throws MetadataProviderException {
+    public void setProviders(List<MetadataProvider> newProviders) throws ResolverException {
 
         try {
 
@@ -242,7 +242,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
                     super.addMetadataProvider(provider);
                     log.debug("Metadata provider was initialized {}", provider.toString());
 
-                } catch (MetadataProviderException e) {
+                } catch (ResolverException e) {
 
                     log.error("Initialization of metadata provider " + provider + " failed, provider will be ignored", e);
 
@@ -252,7 +252,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
 
             log.debug("Reloading metadata was finished");
 
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
 
             throw new RuntimeException("Error clearing existing providers");
 
@@ -303,10 +303,10 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * addition.
      *
      * @param newProvider provider
-     * @throws MetadataProviderException in case provider can't be added
+     * @throws ResolverException in case provider can't be added
      */
     @Override
-    public void addMetadataProvider(MetadataProvider newProvider) throws MetadataProviderException {
+    public void addMetadataProvider(MetadataProvider newProvider) throws ResolverException {
 
         if (newProvider == null) {
             throw new IllegalArgumentException("Null provider can't be added");
@@ -403,9 +403,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * applied.
      *
      * @param provider provider to initialize
-     * @throws MetadataProviderException error
+     * @throws ResolverException error
      */
-    protected void initializeProvider(ExtendedMetadataDelegate provider) throws MetadataProviderException {
+    protected void initializeProvider(ExtendedMetadataDelegate provider) throws ResolverException {
 
         // Initialize provider and perform signature verification
         log.debug("Initializing extendedMetadataDelegate {}", provider);
@@ -417,9 +417,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * Method populates local storage of IDP and SP names and verifies any name conflicts which might arise.
      *
      * @param provider provider to initialize
-     * @throws MetadataProviderException error
+     * @throws ResolverException error
      */
-    protected void initializeProviderData(ExtendedMetadataDelegate provider) throws MetadataProviderException {
+    protected void initializeProviderData(ExtendedMetadataDelegate provider) throws ResolverException {
 
         log.debug("Initializing provider data {}", provider);
 
@@ -509,9 +509,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * By default a SignatureValidationFilter is added together with any existing filters.
      *
      * @param provider provider to check
-     * @throws MetadataProviderException in case initialization fails
+     * @throws ResolverException in case initialization fails
      */
-    protected void initializeProviderFilters(ExtendedMetadataDelegate provider) throws MetadataProviderException {
+    protected void initializeProviderFilters(ExtendedMetadataDelegate provider) throws ResolverException {
 
         if (provider.isTrustFiltersInitialized()) {
 
@@ -636,9 +636,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param provider provider to parse
      * @return set of entityIDs available in the provider
-     * @throws MetadataProviderException error
+     * @throws ResolverException error
      */
-    protected List<String> parseProvider(MetadataProvider provider) throws MetadataProviderException {
+    protected List<String> parseProvider(MetadataProvider provider) throws ResolverException {
 
         List<String> result = new LinkedList<String>();
 
@@ -661,9 +661,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param result      result set of parsed entity IDs
      * @param descriptors descriptors to parse
-     * @throws MetadataProviderException in case signature validation fails
+     * @throws ResolverException in case signature validation fails
      */
-    private void addDescriptors(List<String> result, EntitiesDescriptor descriptors) throws MetadataProviderException {
+    private void addDescriptors(List<String> result, EntitiesDescriptor descriptors) throws ResolverException {
 
         log.debug("Found metadata EntitiesDescriptor with ID", descriptors.getID());
 
@@ -686,9 +686,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param result     result set
      * @param descriptor descriptor to parse
-     * @throws MetadataProviderException in case signature validation fails
+     * @throws ResolverException in case signature validation fails
      */
-    private void addDescriptor(List<String> result, EntityDescriptor descriptor) throws MetadataProviderException {
+    private void addDescriptor(List<String> result, EntityDescriptor descriptor) throws ResolverException {
 
         String entityID = descriptor.getEntityID();
         log.debug("Found metadata EntityDescriptor with ID", entityID);
@@ -777,9 +777,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * it is returned. Otherwise first available IDP in IDP list is used.
      *
      * @return entity ID of IDP to use
-     * @throws MetadataProviderException in case IDP can't be determined
+     * @throws ResolverException in case IDP can't be determined
      */
-    public String getDefaultIDP() throws MetadataProviderException {
+    public String getDefaultIDP() throws ResolverException {
 
         try {
 
@@ -792,7 +792,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
                 if (iterator.hasNext()) {
                     return iterator.next();
                 } else {
-                    throw new MetadataProviderException("No IDP was configured, please update included metadata with at least one IDP");
+                    throw new ResolverException("No IDP was configured, please update included metadata with at least one IDP");
                 }
             }
 
@@ -824,9 +824,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param entityID entity ID to load extended metadata for
      * @return extended metadata or defaults
-     * @throws MetadataProviderException never thrown
+     * @throws ResolverException never thrown
      */
-    public ExtendedMetadata getExtendedMetadata(String entityID) throws MetadataProviderException {
+    public ExtendedMetadata getExtendedMetadata(String entityID) throws ResolverException {
 
         try {
 
@@ -849,7 +849,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
 
     }
 
-    private ExtendedMetadata getExtendedMetadata(String entityID, MetadataProvider provider) throws MetadataProviderException {
+    private ExtendedMetadata getExtendedMetadata(String entityID, MetadataProvider provider) throws ResolverException {
         if (provider instanceof ExtendedMetadataProvider) {
             ExtendedMetadataProvider extendedProvider = (ExtendedMetadataProvider) provider;
             ExtendedMetadata extendedMetadata = extendedProvider.getExtendedMetadata(entityID);
@@ -865,9 +865,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param hash hash of the entity descriptor
      * @return found descriptor or null
-     * @throws MetadataProviderException in case metadata required for processing can't be loaded
+     * @throws ResolverException in case metadata required for processing can't be loaded
      */
-    public EntityDescriptor getEntityDescriptor(byte[] hash) throws MetadataProviderException {
+    public EntityDescriptor getEntityDescriptor(byte[] hash) throws ResolverException {
 
         try {
 
@@ -901,9 +901,9 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      *
      * @param entityAlias alias to locate id for
      * @return entity id for the given alias or null if none exists
-     * @throws MetadataProviderException in case two entity have the same non-null alias
+     * @throws ResolverException in case two entity have the same non-null alias
      */
-    public String getEntityIdForAlias(String entityAlias) throws MetadataProviderException {
+    public String getEntityIdForAlias(String entityAlias) throws ResolverException {
 
         try {
 
@@ -919,7 +919,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
                 ExtendedMetadata extendedMetadata = getExtendedMetadata(idp);
                 if (extendedMetadata.isLocal() && entityAlias.equals(extendedMetadata.getAlias())) {
                     if (entityId != null && !entityId.equals(idp)) {
-                        throw new MetadataProviderException("Alias " + entityAlias + " is used both for entity " + entityId + " and " + idp);
+                        throw new ResolverException("Alias " + entityAlias + " is used both for entity " + entityId + " and " + idp);
                     } else {
                         entityId = idp;
                     }
@@ -930,7 +930,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
                 ExtendedMetadata extendedMetadata = getExtendedMetadata(sp);
                 if (extendedMetadata.isLocal() && entityAlias.equals(extendedMetadata.getAlias())) {
                     if (entityId != null && !entityId.equals(sp)) {
-                        throw new MetadataProviderException("Alias " + entityAlias + " is used both for entity " + entityId + " and " + sp);
+                        throw new ResolverException("Alias " + entityAlias + " is used both for entity " + entityId + " and " + sp);
                     } else {
                         entityId = sp;
                     }

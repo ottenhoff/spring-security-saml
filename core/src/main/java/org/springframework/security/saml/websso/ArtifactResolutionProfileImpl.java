@@ -26,7 +26,7 @@ import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.security.MetadataCriteria;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
@@ -69,11 +69,11 @@ public class ArtifactResolutionProfileImpl extends ArtifactResolutionProfileBase
      * @throws SAMLException             error processing artifact messages
      * @throws MessageEncodingException  error sending artifactRequest
      * @throws MessageDecodingException  error retrieving artifactResponse
-     * @throws MetadataProviderException error resolving metadata
+     * @throws ResolverException error resolving metadata
      * @throws org.opensaml.security.SecurityException
      *                                   invalid message signature
      */
-    protected void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.security.SecurityException {
+    protected void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, ResolverException, org.opensaml.security.SecurityException {
 
         PostMethod postMethod = null;
 

@@ -20,7 +20,7 @@ import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.core.AuthnRequest;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;
 import org.opensaml.ws.transport.http.HttpServletResponseAdapter;
 import org.opensaml.core.xml.XMLObject;
@@ -117,7 +117,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testMissingSP() throws Exception {
         MetadataManager manager = context.getBean("metadata", MetadataManager.class);
         while (manager.getProviders().size() > 0) {
@@ -197,7 +197,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testInvalidBinding() throws Exception {
         options.setBinding("invalid");
         storage.storeMessage((String) notNull(), (XMLObject) notNull());
@@ -212,7 +212,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testUnsupportedConsumerIndex() throws Exception {
         options.setAssertionConsumerIndex(2);
         storage.storeMessage((String) notNull(), (XMLObject) notNull());
@@ -226,7 +226,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testInvalidConsumerIndex() throws Exception {
         options.setAssertionConsumerIndex(20);
         storage.storeMessage((String) notNull(), (XMLObject) notNull());
@@ -240,7 +240,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testBindingUnsupportedByIDP() throws Exception {
         String idpId = "http://localhost:8080/noBinding";
         samlContext.setPeerEntityId(idpId);
@@ -278,7 +278,7 @@ public class WebSSOProfileImplTest {
      *
      * @throws Exception error
      */
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testNoAvailableBinding() throws Exception {
         String idpId = "http://localhost:8080/noBinding";
         samlContext.setPeerEntityId(idpId);

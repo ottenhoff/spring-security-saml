@@ -19,7 +19,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.opensaml.saml.saml2.metadata.provider.AbstractReloadingMetadataProvider;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -176,7 +176,7 @@ public class MetadataManagerTest {
                         AbstractMetadataDelegate delegate = (AbstractMetadataDelegate) metadataProvider;
                         AbstractReloadingMetadataProvider prov = (AbstractReloadingMetadataProvider) delegate.getDelegate();
                         prov.refresh();
-                    } catch (MetadataProviderException e) {
+                    } catch (ResolverException e) {
                         e.printStackTrace();
                     }
                 }
@@ -318,7 +318,7 @@ public class MetadataManagerTest {
 
                 }
 
-            } catch (MetadataProviderException e) {
+            } catch (ResolverException e) {
                 failure = e;
                 throw new RuntimeException("Timer has failed", e);
             } catch (Throwable e) {

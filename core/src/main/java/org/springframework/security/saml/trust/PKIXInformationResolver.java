@@ -17,7 +17,7 @@
 package org.springframework.security.saml.trust;
 
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.saml.saml2.metadata.provider.ObservableMetadataProvider;
 import org.opensaml.security.MetadataCriteria;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
@@ -136,7 +136,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
         log.debug("Forcing on-demand metadata provider refresh if necessary");
         try {
             metadata.getMetadata();
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             // don't care about errors at this level
         }
 
@@ -276,7 +276,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
                 anchors.add(keyManager.getCertificate(key));
             }
 
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             throw new SecurityException("Error loading extended metadata", e);
         }
 

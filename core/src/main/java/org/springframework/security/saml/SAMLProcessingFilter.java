@@ -15,7 +15,7 @@
 package org.springframework.security.saml;
 
 import org.opensaml.saml.common.SAMLException;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,7 +89,7 @@ public class SAMLProcessingFilter extends AbstractAuthenticationProcessingFilter
         } catch (SAMLException e) {
             logger.debug("Incoming SAML message is invalid", e);
             throw new AuthenticationServiceException("Incoming SAML message is invalid", e);
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             logger.debug("Error determining metadata contracts", e);
             throw new AuthenticationServiceException("Error determining metadata contracts", e);
         } catch (MessageDecodingException e) {

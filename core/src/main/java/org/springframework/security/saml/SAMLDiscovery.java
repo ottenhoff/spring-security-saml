@@ -17,7 +17,7 @@ package org.springframework.security.saml;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.saml.saml2.metadata.RoleDescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.saml.ext.idpdisco.DiscoveryResponse;
 import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.core.xml.XMLObject;
@@ -182,7 +182,7 @@ public class SAMLDiscovery extends GenericFilterBean {
             request.setAttribute(SAMLConstants.LOCAL_ENTITY_ID, entityId);
             messageContext = contextProvider.getLocalEntity(request, response);
 
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             logger.debug("Error loading metadata", e);
             throw new ServletException(new SAMLException("Error loading metadata", e));
         }
@@ -367,7 +367,7 @@ public class SAMLDiscovery extends GenericFilterBean {
     protected String getPassiveIDP(HttpServletRequest request) {
         try {
             return metadata.getDefaultIDP();
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             return null;
         }
     }

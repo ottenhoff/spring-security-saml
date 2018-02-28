@@ -29,7 +29,7 @@ import org.opensaml.saml.saml2.metadata.ArtifactResolutionService;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
@@ -77,7 +77,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
             EntityDescriptor idpEntityDescriptor = metadata.getEntityDescriptor(decodedArtifact.getSourceID());
 
             if (idpEntityDescriptor == null) {
-                throw new MetadataProviderException("Cannot localize sender entity by SHA-1 hash from the artifact");
+                throw new ResolverException("Cannot localize sender entity by SHA-1 hash from the artifact");
             }
 
             ExtendedMetadata extendedMetadata = metadata.getExtendedMetadata(idpEntityDescriptor.getEntityID());
@@ -118,7 +118,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
 
             return message;
 
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             throw new MessageDecodingException("Error processing metadata", e);
         } catch (MessageEncodingException e) {
             throw new MessageDecodingException("Could not encode artifact resolve message", e);
@@ -145,12 +145,12 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      *          error sending artifactRequest
      * @throws org.opensaml.messaging.decoder.MessageDecodingException
      *          error retrieveing articatResponse
-     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
+     * @throws net.shibboleth.utilities.java.support.resolver.ResolverException
      *          error resolving metadata
      * @throws org.opensaml.security.SecurityException
      *          invalid message signature
      */
-    protected abstract void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.security.SecurityException;
+    protected abstract void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, ResolverException, org.opensaml.security.SecurityException;
 
     protected ArtifactResolve createArtifactResolve(SAMLMessageContext context, String artifactId, Endpoint endpoint) {
 

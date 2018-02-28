@@ -23,7 +23,7 @@ import org.opensaml.saml2.ecp.Request;
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.SingleSignOnService;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.soap.common.SOAPObjectBuilder;
 import org.opensaml.ws.soap.soap11.Envelope;
@@ -49,7 +49,7 @@ public class WebSSOProfileECPImpl extends WebSSOProfileImpl {
 
     @Override
     public void sendAuthenticationRequest(SAMLMessageContext context, WebSSOProfileOptions options)
-            throws SAMLException, MetadataProviderException, MessageEncodingException {
+            throws SAMLException, ResolverException, MessageEncodingException {
 
         SPSSODescriptor spDescriptor = (SPSSODescriptor) context.getLocalEntityRoleMetadata();
         AssertionConsumerService assertionConsumer = getAssertionConsumerService(options, null, spDescriptor);

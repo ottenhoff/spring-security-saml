@@ -17,7 +17,7 @@ package org.springframework.security.saml.web;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.security.credential.Credential;
 import org.slf4j.Logger;
@@ -60,7 +60,7 @@ public class MetadataController {
     KeyManager keyManager;
 
     @RequestMapping
-    public ModelAndView metadataList() throws MetadataProviderException {
+    public ModelAndView metadataList() throws ResolverException {
 
         ModelAndView model = new ModelAndView(new InternalResourceView("/WEB-INF/security/metadataList.jsp", true));
 
@@ -82,7 +82,7 @@ public class MetadataController {
     }
 
     @RequestMapping(value = "/refresh")
-    public ModelAndView refreshMetadata() throws MetadataProviderException {
+    public ModelAndView refreshMetadata() throws ResolverException {
 
         metadataManager.refreshMetadata();
         return metadataList();
@@ -101,7 +101,7 @@ public class MetadataController {
     }
 
     @RequestMapping(value = "/removeProvider")
-    public ModelAndView removeProvider(@RequestParam int providerIndex) throws MetadataProviderException {
+    public ModelAndView removeProvider(@RequestParam int providerIndex) throws ResolverException {
 
         ExtendedMetadataDelegate delegate = metadataManager.getAvailableProviders().get(providerIndex);
         metadataManager.removeMetadataProvider(delegate);
@@ -126,7 +126,7 @@ public class MetadataController {
     }
 
     @RequestMapping(value = "/create")
-    public ModelAndView createMetadata(@ModelAttribute("metadata") MetadataForm metadata, BindingResult bindingResult) throws MetadataProviderException, MarshallingException, KeyStoreException {
+    public ModelAndView createMetadata(@ModelAttribute("metadata") MetadataForm metadata, BindingResult bindingResult) throws ResolverException, MarshallingException, KeyStoreException {
 
         new MetadataValidator(metadataManager).validate(metadata, bindingResult);
 
@@ -244,17 +244,17 @@ public class MetadataController {
      *
      * @param entityId entity ID of metadata to display
      * @return model and view
-     * @throws MetadataProviderException in case metadata can't be located
+     * @throws ResolverException in case metadata can't be located
      * @throws MarshallingException      in case de-serialization into string fails
      */
     @RequestMapping(value = "/display")
-    public ModelAndView displayMetadata(@RequestParam("entityId") String entityId) throws MetadataProviderException, MarshallingException {
+    public ModelAndView displayMetadata(@RequestParam("entityId") String entityId) throws ResolverException, MarshallingException {
 
         EntityDescriptor entityDescriptor = metadataManager.getEntityDescriptor(entityId);
         ExtendedMetadata extendedMetadata = metadataManager.getExtendedMetadata(entityId);
 
         if (entityDescriptor == null) {
-            throw new MetadataProviderException("Metadata with ID " + entityId + " not found");
+            throw new ResolverException("Metadata with ID " + entityId + " not found");
         }
 
         return displayMetadata(entityDescriptor, extendedMetadata);

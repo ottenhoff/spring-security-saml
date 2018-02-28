@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.AbstractMetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.core.xml.XMLObject;
 
 /**
@@ -48,7 +48,7 @@ public class MetadataMemoryProvider extends AbstractMetadataProvider {
     }
 
     @Override
-    protected XMLObject doGetMetadata() throws MetadataProviderException {
+    protected XMLObject doGetMetadata() throws ResolverException {
         return descriptor;
     }
 

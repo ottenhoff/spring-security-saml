@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,9 +52,9 @@ public class CachingMetadataManager extends MetadataManager {
      * Creates caching metadata provider.
      *
      * @param providers providers to include
-     * @throws MetadataProviderException error initializing
+     * @throws ResolverException error initializing
      */
-    public CachingMetadataManager(List<MetadataProvider> providers) throws MetadataProviderException {
+    public CachingMetadataManager(List<MetadataProvider> providers) throws ResolverException {
 
         super(providers);
 
@@ -98,9 +98,9 @@ public class CachingMetadataManager extends MetadataManager {
      *
      * @param entityAlias to load entityId for
      * @return entityId or null if not found
-     * @throws MetadataProviderException provider in case alias is not unique or missing
+     * @throws ResolverException provider in case alias is not unique or missing
      */
-    public String getEntityIdForAlias(String entityAlias) throws MetadataProviderException {
+    public String getEntityIdForAlias(String entityAlias) throws ResolverException {
         return getFromCacheOrUpdate(aliasCache, entityAlias, aliasLoader);
     }
 
@@ -109,10 +109,10 @@ public class CachingMetadataManager extends MetadataManager {
      *
      * @param entityID id to load descriptor for
      * @return entity descriptor or null if not found
-     * @throws MetadataProviderException provider
+     * @throws ResolverException provider
      */
     @Override
-    public EntityDescriptor getEntityDescriptor(String entityID) throws MetadataProviderException {
+    public EntityDescriptor getEntityDescriptor(String entityID) throws ResolverException {
         return getFromCacheOrUpdate(basicMetadataCache, entityID, entityLoader);
     }
 
@@ -123,7 +123,7 @@ public class CachingMetadataManager extends MetadataManager {
      * @return found descriptor or null
      */
     @Override
-    public EntityDescriptor getEntityDescriptor(byte[] hash) throws MetadataProviderException {
+    public EntityDescriptor getEntityDescriptor(byte[] hash) throws ResolverException {
         return getFromCacheOrUpdate(hashMetadataCache, hash, entityHashLoader);
     }
 
@@ -132,10 +132,10 @@ public class CachingMetadataManager extends MetadataManager {
      *
      * @param entityID id to load extended metadata for
      * @return entity descriptor or null if not found
-     * @throws MetadataProviderException provider
+     * @throws ResolverException provider
      */
     @Override
-    public ExtendedMetadata getExtendedMetadata(String entityID) throws MetadataProviderException {
+    public ExtendedMetadata getExtendedMetadata(String entityID) throws ResolverException {
         return getFromCacheOrUpdate(extendedMetadataCache, entityID, extendedLoader);
     }
 
@@ -148,9 +148,9 @@ public class CachingMetadataManager extends MetadataManager {
      * @param valueLoader loader to load value in case it is not present in the cache
      * @param <T>         type of cache
      * @return found value or null if not found
-     * @throws MetadataProviderException error or null key
+     * @throws ResolverException error or null key
      */
-    private <T, U> T getFromCacheOrUpdate(Map<U, T> cache, U key, ValueLoader<T, U> valueLoader) throws MetadataProviderException {
+    private <T, U> T getFromCacheOrUpdate(Map<U, T> cache, U key, ValueLoader<T, U> valueLoader) throws ResolverException {
 
         if (key == null) {
             return null;
@@ -194,29 +194,29 @@ public class CachingMetadataManager extends MetadataManager {
      * @param <T> found value, null if not found
      */
     private interface ValueLoader<T, U> {
-        T getValue(U identifier) throws MetadataProviderException;
+        T getValue(U identifier) throws ResolverException;
     }
 
     private final ValueLoader<String, String> aliasLoader = new ValueLoader<String, String>() {
-        public String getValue(String identifier) throws MetadataProviderException {
+        public String getValue(String identifier) throws ResolverException {
             return CachingMetadataManager.super.getEntityIdForAlias(identifier);
         }
     };
 
     private final ValueLoader<EntityDescriptor, String> entityLoader = new ValueLoader<EntityDescriptor, String>() {
-        public EntityDescriptor getValue(String identifier) throws MetadataProviderException {
+        public EntityDescriptor getValue(String identifier) throws ResolverException {
             return CachingMetadataManager.super.getEntityDescriptor(identifier);
         }
     };
 
     private final ValueLoader<EntityDescriptor, byte[]> entityHashLoader = new ValueLoader<EntityDescriptor, byte[]>() {
-        public EntityDescriptor getValue(byte[] identifier) throws MetadataProviderException {
+        public EntityDescriptor getValue(byte[] identifier) throws ResolverException {
             return CachingMetadataManager.super.getEntityDescriptor(identifier);
         }
     };
 
     private final ValueLoader<ExtendedMetadata, String> extendedLoader = new ValueLoader<ExtendedMetadata, String>() {
-        public ExtendedMetadata getValue(String identifier) throws MetadataProviderException {
+        public ExtendedMetadata getValue(String identifier) throws ResolverException {
             return CachingMetadataManager.super.getExtendedMetadata(identifier);
         }
     };

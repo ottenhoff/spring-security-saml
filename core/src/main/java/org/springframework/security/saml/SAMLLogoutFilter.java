@@ -17,7 +17,7 @@ package org.springframework.security.saml;
 
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLRuntimeException;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -151,7 +151,7 @@ public class SAMLLogoutFilter extends LogoutFilter {
             } catch (SAMLException e) {
                 logger.debug("Error initializing global logout", e);
                 throw new ServletException("Error initializing global logout", e);
-            } catch (MetadataProviderException e) {
+            } catch (ResolverException e) {
                 logger.debug("Error processing metadata", e);
                 throw new ServletException("Error processing metadata", e);
             } catch (MessageEncodingException e) {

@@ -16,7 +16,7 @@ package org.springframework.security.saml.websso;
 
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml.saml2.metadata.SingleSignOnService;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.springframework.security.saml.SAMLConstants;
 import org.springframework.security.saml.util.SAMLUtil;
 
@@ -35,7 +35,7 @@ public class WebSSOProfileHoKImpl extends WebSSOProfileImpl {
     }
 
     @Override
-    protected boolean isEndpointSupported(SingleSignOnService endpoint) throws MetadataProviderException {
+    protected boolean isEndpointSupported(SingleSignOnService endpoint) throws ResolverException {
 
         // Only HoK endpoints are supported
         if (!SAMLConstants.SAML2_HOK_WEBSSO_PROFILE_URI.equals(endpoint.getBinding())) {
@@ -50,7 +50,7 @@ public class WebSSOProfileHoKImpl extends WebSSOProfileImpl {
     }
 
     @Override
-    protected boolean isEndpointSupported(AssertionConsumerService endpoint) throws MetadataProviderException {
+    protected boolean isEndpointSupported(AssertionConsumerService endpoint) throws ResolverException {
 
         // Only HoK endpoints are supported
         if (!SAMLConstants.SAML2_HOK_WEBSSO_PROFILE_URI.equals(endpoint.getBinding())) {

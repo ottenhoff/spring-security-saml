@@ -22,7 +22,7 @@ import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.RoleDescriptor;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.security.MetadataCredentialResolver;
 import org.opensaml.ws.security.ServletRequestX509CredentialAdapter;
 import org.opensaml.ws.transport.http.HTTPInTransport;
@@ -97,9 +97,9 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * @param request  request
      * @param response response
      * @return context
-     * @throws MetadataProviderException in case of metadata problems
+     * @throws ResolverException in case of metadata problems
      */
-    public SAMLMessageContext getLocalEntity(HttpServletRequest request, HttpServletResponse response) throws MetadataProviderException {
+    public SAMLMessageContext getLocalEntity(HttpServletRequest request, HttpServletResponse response) throws ResolverException {
 
         SAMLMessageContext context = new SAMLMessageContext();
         populateGenericContext(request, response, context);
@@ -116,9 +116,9 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * @param request  request
      * @param response response
      * @return context
-     * @throws MetadataProviderException in case of metadata problems
+     * @throws ResolverException in case of metadata problems
      */
-    public SAMLMessageContext getLocalAndPeerEntity(HttpServletRequest request, HttpServletResponse response) throws MetadataProviderException {
+    public SAMLMessageContext getLocalAndPeerEntity(HttpServletRequest request, HttpServletResponse response) throws ResolverException {
 
         SAMLMessageContext context = new SAMLMessageContext();
         populateGenericContext(request, response, context);
@@ -138,9 +138,9 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * If request parameter is null the default IDP is returned.
      *
      * @param context context to populate ID for
-     * @throws MetadataProviderException in case provided IDP value is invalid
+     * @throws ResolverException in case provided IDP value is invalid
      */
-    protected void populatePeerEntityId(SAMLMessageContext context) throws MetadataProviderException {
+    protected void populatePeerEntityId(SAMLMessageContext context) throws ResolverException {
 
         HTTPInTransport inTransport = (HTTPInTransport) context.getInboundMessageTransport();
         String entityId;
@@ -169,15 +169,15 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * Populates additional information about the peer based on the previously loaded peerEntityId.
      *
      * @param samlContext to populate
-     * @throws MetadataProviderException in case metadata problem is encountered
+     * @throws ResolverException in case metadata problem is encountered
      */
-    protected void populatePeerContext(SAMLMessageContext samlContext) throws MetadataProviderException {
+    protected void populatePeerContext(SAMLMessageContext samlContext) throws ResolverException {
 
         String peerEntityId = samlContext.getPeerEntityId();
         QName peerEntityRole = samlContext.getPeerEntityRole();
 
         if (peerEntityId == null) {
-            throw new MetadataProviderException("Peer entity ID wasn't specified, but is requested");
+            throw new ResolverException("Peer entity ID wasn't specified, but is requested");
         }
 
         EntityDescriptor entityDescriptor = metadata.getEntityDescriptor(peerEntityId);
@@ -185,7 +185,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
         ExtendedMetadata extendedMetadata = metadata.getExtendedMetadata(peerEntityId);
 
         if (entityDescriptor == null || roleDescriptor == null) {
-            throw new MetadataProviderException("Metadata for entity " + peerEntityId + " and role " + peerEntityRole + " wasn't found");
+            throw new ResolverException("Metadata for entity " + peerEntityId + " and role " + peerEntityRole + " wasn't found");
         }
 
         samlContext.setPeerEntityMetadata(entityDescriptor);
@@ -195,7 +195,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
 
     }
 
-    protected void populateGenericContext(HttpServletRequest request, HttpServletResponse response, SAMLMessageContext context) throws MetadataProviderException {
+    protected void populateGenericContext(HttpServletRequest request, HttpServletResponse response, SAMLMessageContext context) throws ResolverException {
 
         HttpServletRequestAdapter inTransport = new HttpServletRequestAdapter(request);
         HttpServletResponseAdapter outTransport = new HttpServletResponseAdapter(response, request.isSecure());
@@ -211,7 +211,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
 
     }
 
-    protected void populateLocalContext(SAMLMessageContext context) throws MetadataProviderException {
+    protected void populateLocalContext(SAMLMessageContext context) throws ResolverException {
 
         populateLocalEntity(context);
         populateDecrypter(context);
@@ -232,9 +232,9 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      *
      * @param context     context to populate fields localEntityId and localEntityRole for
      * @param requestURI context path to parse entityId and entityRole from
-     * @throws MetadataProviderException in case entityId can't be populated
+     * @throws ResolverException in case entityId can't be populated
      */
-    protected void populateLocalEntityId(SAMLMessageContext context, String requestURI) throws MetadataProviderException {
+    protected void populateLocalEntityId(SAMLMessageContext context, String requestURI) throws ResolverException {
 
         String entityId;
         HTTPInTransport inTransport = (HTTPInTransport) context.getInboundMessageTransport();
@@ -276,7 +276,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
             entityId = metadata.getEntityIdForAlias(localAlias);
 
             if (entityId == null) {
-                throw new MetadataProviderException("No local entity found for alias " + localAlias + ", verify your configuration.");
+                throw new ResolverException("No local entity found for alias " + localAlias + ", verify your configuration.");
             } else {
                 logger.debug("Using SP {} specified in request with alias {}", entityId, localAlias);
             }
@@ -299,16 +299,16 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
      * are used instead.
      *
      * @param samlContext context to populate
-     * @throws org.opensaml.saml.saml2.metadata.provider.MetadataProviderException
+     * @throws net.shibboleth.utilities.java.support.resolver.ResolverException
      *          in case metadata do not contain expected entities or localAlias is specified but not found
      */
-    protected void populateLocalEntity(SAMLMessageContext samlContext) throws MetadataProviderException {
+    protected void populateLocalEntity(SAMLMessageContext samlContext) throws ResolverException {
 
         String localEntityId = samlContext.getLocalEntityId();
         QName localEntityRole = samlContext.getLocalEntityRole();
 
         if (localEntityId == null) {
-            throw new MetadataProviderException("No hosted service provider is configured and no alias was selected");
+            throw new ResolverException("No hosted service provider is configured and no alias was selected");
         }
 
         EntityDescriptor entityDescriptor = metadata.getEntityDescriptor(localEntityId);
@@ -316,7 +316,7 @@ public class SAMLContextProviderImpl implements SAMLContextProvider, Initializin
         ExtendedMetadata extendedMetadata = metadata.getExtendedMetadata(localEntityId);
 
         if (entityDescriptor == null || roleDescriptor == null) {
-            throw new MetadataProviderException("Metadata for entity " + localEntityId + " and role " + localEntityRole + " wasn't found");
+            throw new ResolverException("Metadata for entity " + localEntityId + " and role " + localEntityRole + " wasn't found");
         }
 
         samlContext.setLocalEntityMetadata(entityDescriptor);

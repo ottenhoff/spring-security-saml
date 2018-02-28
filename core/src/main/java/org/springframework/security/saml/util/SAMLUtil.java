@@ -22,7 +22,7 @@ import net.shibboleth.utilities.java.support.net.BasicURLComparator;
 import net.shibboleth.utilities.java.support.net.URIComparator;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.*;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.InTransport;
@@ -96,9 +96,9 @@ public class SAMLUtil {
      * @param descriptor IDP to search for service in
      * @param binding    binding supported by the service
      * @return SSO service capable of handling the given binding
-     * @throws MetadataProviderException if the service can't be determined
+     * @throws ResolverException if the service can't be determined
      */
-    public static SingleLogoutService getLogoutServiceForBinding(SSODescriptor descriptor, String binding) throws MetadataProviderException {
+    public static SingleLogoutService getLogoutServiceForBinding(SSODescriptor descriptor, String binding) throws ResolverException {
         List<SingleLogoutService> services = descriptor.getSingleLogoutServices();
         for (SingleLogoutService service : services) {
             if (binding.equals(service.getBinding())) {
@@ -106,14 +106,14 @@ public class SAMLUtil {
             }
         }
         logger.debug("No binding found for IDP with binding " + binding);
-        throw new MetadataProviderException("Binding " + binding + " is not supported for this IDP");
+        throw new ResolverException("Binding " + binding + " is not supported for this IDP");
     }
 
-    public static String getLogoutBinding(IDPSSODescriptor idp, SPSSODescriptor sp) throws MetadataProviderException {
+    public static String getLogoutBinding(IDPSSODescriptor idp, SPSSODescriptor sp) throws ResolverException {
 
         List<SingleLogoutService> logoutServices = idp.getSingleLogoutServices();
         if (logoutServices.size() == 0) {
-            throw new MetadataProviderException("IDP doesn't contain any SingleLogout endpoints");
+            throw new ResolverException("IDP doesn't contain any SingleLogout endpoints");
         }
 
         String binding = null;
@@ -215,9 +215,9 @@ public class SAMLUtil {
      * @param hashID   hash id to compare
      * @param entityId entity id to hash and verify
      * @return true if values match
-     * @throws MetadataProviderException in case SHA-1 hash can't be initialized
+     * @throws ResolverException in case SHA-1 hash can't be initialized
      */
-    public static boolean compare(byte[] hashID, String entityId) throws MetadataProviderException {
+    public static boolean compare(byte[] hashID, String entityId) throws ResolverException {
 
         try {
 
@@ -233,7 +233,7 @@ public class SAMLUtil {
             return true;
 
         } catch (NoSuchAlgorithmException e) {
-            throw new MetadataProviderException("SHA-1 message digest not available", e);
+            throw new ResolverException("SHA-1 message digest not available", e);
         }
 
     }
@@ -243,16 +243,16 @@ public class SAMLUtil {
      *
      * @param alias alias to verify
      * @param entityId id of the entity
-     * @throws MetadataProviderException in case any validation problem is found
+     * @throws ResolverException in case any validation problem is found
      */
-    public static void verifyAlias(String alias, String entityId) throws MetadataProviderException {
+    public static void verifyAlias(String alias, String entityId) throws ResolverException {
 
         if (alias == null) {
-            throw new MetadataProviderException("Alias for entity " + entityId + " is null");
+            throw new ResolverException("Alias for entity " + entityId + " is null");
         } else if (alias.length() == 0) {
-            throw new MetadataProviderException("Alias for entity " + entityId + " is empty");
+            throw new ResolverException("Alias for entity " + entityId + " is empty");
         } else if (!alias.matches("\\p{ASCII}*")) {
-            throw new MetadataProviderException("Only ASCII characters can be used in the alias " + alias + " for entity " + entityId);
+            throw new ResolverException("Only ASCII characters can be used in the alias " + alias + " for entity " + entityId);
         }
 
     }
@@ -362,16 +362,16 @@ public class SAMLUtil {
      * @param metadata metadata manager
      * @param idpId entity ID
      * @return descriptor
-     * @throws MetadataProviderException in case descriptor can't be found
+     * @throws ResolverException in case descriptor can't be found
      */
-    public static IDPSSODescriptor getIDPDescriptor(MetadataManager metadata, String idpId) throws MetadataProviderException {
+    public static IDPSSODescriptor getIDPDescriptor(MetadataManager metadata, String idpId) throws ResolverException {
         if (!metadata.isIDPValid(idpId)) {
             logger.debug("IDP name of the authenticated user is not valid", idpId);
-            throw new MetadataProviderException("IDP with name " + idpId + " wasn't found in the list of configured IDPs");
+            throw new ResolverException("IDP with name " + idpId + " wasn't found in the list of configured IDPs");
         }
         IDPSSODescriptor idpssoDescriptor = (IDPSSODescriptor) metadata.getRole(idpId, IDPSSODescriptor.DEFAULT_ELEMENT_NAME, SAMLConstants.SAML20P_NS);
         if (idpssoDescriptor == null) {
-            throw new MetadataProviderException("Given IDP " + idpId + " doesn't contain any IDPSSODescriptor element");
+            throw new ResolverException("Given IDP " + idpId + " doesn't contain any IDPSSODescriptor element");
         }
         return idpssoDescriptor;
     }
@@ -547,7 +547,7 @@ public class SAMLUtil {
         if (extendedMetadata == null) {
             try {
                 extendedMetadata = metadataManager.getExtendedMetadata(descriptor.getEntityID());
-            } catch (MetadataProviderException e) {
+            } catch (ResolverException e) {
                 logger.error("Unable to locate extended metadata", e);
                 throw new MarshallingException("Unable to locate extended metadata", e);
             }

@@ -25,7 +25,7 @@ import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.SingleLogoutService;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.encryption.DecryptionException;
@@ -54,7 +54,7 @@ public class SingleLogoutProfileImpl extends AbstractProfileBase implements Sing
         return SAMLConstants.SAML2_SLO_PROFILE_URI;
     }
 
-    public void sendLogoutRequest(SAMLMessageContext context, SAMLCredential credential) throws SAMLException, MetadataProviderException, MessageEncodingException {
+    public void sendLogoutRequest(SAMLMessageContext context, SAMLCredential credential) throws SAMLException, ResolverException, MessageEncodingException {
 
         // If no user is logged in we do not initialize the protocol.
         if (credential == null) {
@@ -91,9 +91,9 @@ public class SingleLogoutProfileImpl extends AbstractProfileBase implements Sing
      * @param bindingService service used to deliver the request
      * @return logoutRequest to be sent to IDP
      * @throws SAMLException             error creating the message
-     * @throws MetadataProviderException error retrieving metadata
+     * @throws ResolverException error retrieving metadata
      */
-    protected LogoutRequest getLogoutRequest(SAMLMessageContext context, SAMLCredential credential, Endpoint bindingService) throws SAMLException, MetadataProviderException {
+    protected LogoutRequest getLogoutRequest(SAMLMessageContext context, SAMLCredential credential, Endpoint bindingService) throws SAMLException, ResolverException {
 
         SAMLObjectBuilder<LogoutRequest> builder = (SAMLObjectBuilder<LogoutRequest>) builderFactory.getBuilder(LogoutRequest.DEFAULT_ELEMENT_NAME);
         LogoutRequest request = builder.buildObject();
@@ -211,7 +211,7 @@ public class SingleLogoutProfileImpl extends AbstractProfileBase implements Sing
 
     }
 
-    public void sendLogoutResponse(SAMLMessageContext context, String statusCode, String statusMessage) throws MetadataProviderException, SAMLException, MessageEncodingException {
+    public void sendLogoutResponse(SAMLMessageContext context, String statusCode, String statusMessage) throws ResolverException, SAMLException, MessageEncodingException {
 
         SAMLObjectBuilder<LogoutResponse> responseBuilder = (SAMLObjectBuilder<LogoutResponse>) builderFactory.getBuilder(LogoutResponse.DEFAULT_ELEMENT_NAME);
         LogoutResponse logoutResponse = responseBuilder.buildObject();

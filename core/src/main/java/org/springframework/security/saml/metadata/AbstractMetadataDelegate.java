@@ -71,27 +71,27 @@ public abstract class AbstractMetadataDelegate implements ObservableMetadataProv
         return delegate.getMetadataFilter();
     }
 
-    public void setMetadataFilter(MetadataFilter newFilter) throws MetadataProviderException {
+    public void setMetadataFilter(MetadataFilter newFilter) throws ResolverException {
         delegate.setMetadataFilter(newFilter);
     }
 
-    public XMLObject getMetadata() throws MetadataProviderException {
+    public XMLObject getMetadata() throws ResolverException {
         return delegate.getMetadata();
     }
 
-    public EntitiesDescriptor getEntitiesDescriptor(String name) throws MetadataProviderException {
+    public EntitiesDescriptor getEntitiesDescriptor(String name) throws ResolverException {
         return delegate.getEntitiesDescriptor(name);
     }
 
-    public EntityDescriptor getEntityDescriptor(String entityID) throws MetadataProviderException {
+    public EntityDescriptor getEntityDescriptor(String entityID) throws ResolverException {
         return delegate.getEntityDescriptor(entityID);
     }
 
-    public List<RoleDescriptor> getRole(String entityID, QName roleName) throws MetadataProviderException {
+    public List<RoleDescriptor> getRole(String entityID, QName roleName) throws ResolverException {
         return delegate.getRole(entityID, roleName);
     }
 
-    public RoleDescriptor getRole(String entityID, QName roleName, String supportedProtocol) throws MetadataProviderException {
+    public RoleDescriptor getRole(String entityID, QName roleName, String supportedProtocol) throws ResolverException {
         return delegate.getRole(entityID, roleName, supportedProtocol);
     }
 

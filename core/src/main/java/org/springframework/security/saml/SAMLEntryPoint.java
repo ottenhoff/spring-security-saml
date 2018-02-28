@@ -18,7 +18,7 @@ import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.common.SAMLRuntimeException;
 import org.opensaml.saml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.http.HTTPInTransport;
@@ -156,7 +156,7 @@ public class SAMLEntryPoint extends GenericFilterBean implements AuthenticationE
         } catch (SAMLException e1) {
             logger.debug("Error initializing entry point", e1);
             throw new ServletException(e1);
-        } catch (MetadataProviderException e1) {
+        } catch (ResolverException e1) {
             logger.debug("Error initializing entry point", e1);
             throw new ServletException(e1);
         } catch (MessageEncodingException e1) {
@@ -173,11 +173,11 @@ public class SAMLEntryPoint extends GenericFilterBean implements AuthenticationE
      *
      * @param context saml context, also containing wrapped request and response objects
      * @param e       exception causing the entry point to be invoked (if any)
-     * @throws MetadataProviderException in case metadata can't be queried
+     * @throws ResolverException in case metadata can't be queried
      * @throws SAMLException             in case message sending fails
      * @throws MessageEncodingException  in case SAML message encoding fails
      */
-    protected void initializeECP(SAMLMessageContext context, AuthenticationException e) throws MetadataProviderException, SAMLException, MessageEncodingException {
+    protected void initializeECP(SAMLMessageContext context, AuthenticationException e) throws ResolverException, SAMLException, MessageEncodingException {
 
         WebSSOProfileOptions options = getProfileOptions(context, e);
 
@@ -197,11 +197,11 @@ public class SAMLEntryPoint extends GenericFilterBean implements AuthenticationE
      *
      * @param context saml context, also containing wrapped request and response objects
      * @param e       exception causing the entry point to be invoked (if any)
-     * @throws MetadataProviderException in case metadata can't be queried
+     * @throws ResolverException in case metadata can't be queried
      * @throws SAMLException             in case message sending fails
      * @throws MessageEncodingException  in case SAML message encoding fails
      */
-    protected void initializeSSO(SAMLMessageContext context, AuthenticationException e) throws MetadataProviderException, SAMLException, MessageEncodingException {
+    protected void initializeSSO(SAMLMessageContext context, AuthenticationException e) throws ResolverException, SAMLException, MessageEncodingException {
 
         // Generate options for the current SSO request
         WebSSOProfileOptions options = getProfileOptions(context, e);
@@ -235,9 +235,9 @@ public class SAMLEntryPoint extends GenericFilterBean implements AuthenticationE
      * @param context saml context also containing request and response objects
      * @throws ServletException          error
      * @throws IOException               io error
-     * @throws MetadataProviderException in case metadata of the local entity can't be populated
+     * @throws ResolverException in case metadata of the local entity can't be populated
      */
-    protected void initializeDiscovery(SAMLMessageContext context) throws ServletException, IOException, MetadataProviderException {
+    protected void initializeDiscovery(SAMLMessageContext context) throws ServletException, IOException, ResolverException {
 
         String discoveryURL = context.getLocalExtendedMetadata().getIdpDiscoveryURL();
 
@@ -279,9 +279,9 @@ public class SAMLEntryPoint extends GenericFilterBean implements AuthenticationE
      * @param context   containing local entity
      * @param exception exception causing invocation of this entry point (can be null)
      * @return populated webSSOprofile
-     * @throws MetadataProviderException in case metadata loading fails
+     * @throws ResolverException in case metadata loading fails
      */
-    protected WebSSOProfileOptions getProfileOptions(SAMLMessageContext context, AuthenticationException exception) throws MetadataProviderException {
+    protected WebSSOProfileOptions getProfileOptions(SAMLMessageContext context, AuthenticationException exception) throws ResolverException {
 
         WebSSOProfileOptions ssoProfileOptions;
         if (defaultOptions != null) {

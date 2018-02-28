@@ -16,7 +16,7 @@
 package org.springframework.security.saml.websso;
 
 import org.opensaml.saml.common.SAMLException;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.validation.ValidationException;
 import org.springframework.security.saml.SAMLCredential;
@@ -37,10 +37,10 @@ public interface SingleLogoutProfile {
      * @param context processing context
      * @param credential     credential of the currently logged user
      * @throws SAMLException             in case logout request can't be created
-     * @throws MetadataProviderException in case idp metadata can't be resolved
+     * @throws ResolverException in case idp metadata can't be resolved
      * @throws MessageEncodingException  in case message can't be sent using given binding
      */
-    void sendLogoutRequest(SAMLMessageContext context, SAMLCredential credential) throws SAMLException, MetadataProviderException, MessageEncodingException;
+    void sendLogoutRequest(SAMLMessageContext context, SAMLCredential credential) throws SAMLException, ResolverException, MessageEncodingException;
 
     /**
      * Method sends logout response message constructed with the given status code to the peer entity.
@@ -49,10 +49,10 @@ public interface SingleLogoutProfile {
      * @param statusCode status code to respond with
      * @param statusMessage status message to respond with
      * @throws SAMLException             in case logout request can't be created
-     * @throws MetadataProviderException in case idp metadata can't be resolved
+     * @throws ResolverException in case idp metadata can't be resolved
      * @throws MessageEncodingException  in case message can't be sent using given binding
      */
-    void sendLogoutResponse(SAMLMessageContext context, String statusCode, String statusMessage) throws MetadataProviderException, SAMLException, MessageEncodingException;
+    void sendLogoutResponse(SAMLMessageContext context, String statusCode, String statusMessage) throws ResolverException, SAMLException, MessageEncodingException;
 
     /**
      * Implementer must ensure that the incoming LogoutRequest stored in the context is verified and return true if

@@ -2,7 +2,7 @@ package org.springframework.security.saml.metadata;
 
 import org.joda.time.DateTime;
 import org.opensaml.saml.saml2.metadata.provider.FilesystemMetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 
 import java.io.File;
 import java.util.Timer;
@@ -12,11 +12,11 @@ import java.util.Timer;
  */
 public class TestingFilesystemMetadataProvider extends FilesystemMetadataProvider {
 
-    public TestingFilesystemMetadataProvider(File metadata) throws MetadataProviderException {
+    public TestingFilesystemMetadataProvider(File metadata) throws ResolverException {
         super(metadata);
     }
 
-    public TestingFilesystemMetadataProvider(Timer backgroundTaskTimer, File metadata) throws MetadataProviderException {
+    public TestingFilesystemMetadataProvider(Timer backgroundTaskTimer, File metadata) throws ResolverException {
         super(backgroundTaskTimer, metadata);
     }
 

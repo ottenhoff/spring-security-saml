@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.util.SimpleURLCanonicalizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -136,7 +136,7 @@ public class MetadataGeneratorFilter extends GenericFilterBean {
                         manager.setHostedSPName(descriptor.getEntityID());
                         manager.refreshMetadata();
 
-                    } catch (MetadataProviderException e) {
+                    } catch (ResolverException e) {
                         log.error("Error generating system metadata", e);
                         throw new ServletException("Error generating system metadata", e);
                     }

@@ -20,7 +20,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.saml.metadata.MetadataManager;
@@ -122,7 +122,7 @@ public class SAMLContextProviderImplTest {
         verifyMock();
     }
 
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testPopulateLocalEntityAliasInvalidRole() throws Exception {
         setLocalContextParameters(request, "/SSO/alias/myAlias/idp", null);
         replayMock();
@@ -139,7 +139,7 @@ public class SAMLContextProviderImplTest {
         verifyMock();
     }
 
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testPopulateLocalEntityComplexAliasIDPRole_missingRole_SP() throws Exception {
         setLocalContextParameters(request, "/saml/SSO/test/alias/myIdpAlias/test", null);
         replayMock();
@@ -159,7 +159,7 @@ public class SAMLContextProviderImplTest {
         verifyMock();
     }
 
-    @Test(expected = MetadataProviderException.class)
+    @Test(expected = ResolverException.class)
     public void testPopulateCredentialLocalEntity_invalidName() throws Exception {
         setLocalContextParameters(request, "/", "ABC");
         replayMock();

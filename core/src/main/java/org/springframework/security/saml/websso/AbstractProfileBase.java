@@ -27,7 +27,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.core.*;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.security.MetadataCriteria;
 import org.opensaml.saml.security.impl.SAMLSignatureProfileValidator;
 import org.opensaml.messaging.encoder.MessageEncodingException;
@@ -139,12 +139,12 @@ public abstract class AbstractProfileBase implements InitializingBean {
      *
      * @param context context
      * @param sign    whether the message should be signed
-     * @throws MetadataProviderException metadata error
+     * @throws ResolverException metadata error
      * @throws SAMLException             SAML encoding error
      * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *                                   message encoding error
      */
-    protected void sendMessage(SAMLMessageContext context, boolean sign) throws MetadataProviderException, SAMLException, MessageEncodingException {
+    protected void sendMessage(SAMLMessageContext context, boolean sign) throws ResolverException, SAMLException, MessageEncodingException {
         processor.sendMessage(context, sign);
     }
 
@@ -155,12 +155,12 @@ public abstract class AbstractProfileBase implements InitializingBean {
      * @param context context
      * @param sign    whether the message should be signed
      * @param binding binding to use to send the message
-     * @throws MetadataProviderException metadata error
+     * @throws ResolverException metadata error
      * @throws SAMLException             SAML encoding error
      * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *                                   message encoding error
      */
-    protected void sendMessage(SAMLMessageContext context, boolean sign, String binding) throws MetadataProviderException, SAMLException, MessageEncodingException {
+    protected void sendMessage(SAMLMessageContext context, boolean sign, String binding) throws ResolverException, SAMLException, MessageEncodingException {
         processor.sendMessage(context, sign, binding);
     }
 

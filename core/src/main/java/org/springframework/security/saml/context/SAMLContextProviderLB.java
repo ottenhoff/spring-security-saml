@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.context;
 
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
@@ -46,7 +46,7 @@ public class SAMLContextProviderLB extends SAMLContextProviderImpl {
      * @param context  context to populate values to
      */
     @Override
-    protected void populateGenericContext(HttpServletRequest request, HttpServletResponse response, SAMLMessageContext context) throws MetadataProviderException {
+    protected void populateGenericContext(HttpServletRequest request, HttpServletResponse response, SAMLMessageContext context) throws ResolverException {
 
         super.populateGenericContext(new LPRequestWrapper(request), response, context);
 

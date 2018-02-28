@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.trust;
 
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.credential.UsageType;
@@ -127,7 +127,7 @@ public class MetadataCredentialResolver extends org.opensaml.security.MetadataCr
 
             return credentials;
 
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
 
             throw new SecurityException("Error loading metadata information", e);
 

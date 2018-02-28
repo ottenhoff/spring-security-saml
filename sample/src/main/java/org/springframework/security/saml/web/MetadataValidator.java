@@ -15,7 +15,7 @@
 package org.springframework.security.saml.web;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProviderException;
+import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.springframework.security.saml.metadata.MetadataManager;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -108,7 +108,7 @@ public class MetadataValidator implements Validator {
                     errors.rejectValue("alias", null, "Selected alias is already used.");
                 }
             }
-        } catch (MetadataProviderException e) {
+        } catch (ResolverException e) {
             throw new RuntimeException("Error loading alias data", e);
         }
 
