@@ -19,7 +19,7 @@ import org.junit.Test;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.impl.ActionImpl;
-import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.Configuration;
 import org.opensaml.xml.io.Marshaller;
 import org.opensaml.xml.io.MarshallingException;

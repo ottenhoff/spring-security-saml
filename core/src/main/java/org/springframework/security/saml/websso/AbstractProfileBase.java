@@ -30,7 +30,7 @@ import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.MetadataCriteria;
 import org.opensaml.security.SAMLSignatureProfileValidator;
-import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.xml.security.credential.UsageType;
@@ -141,7 +141,7 @@ public abstract class AbstractProfileBase implements InitializingBean {
      * @param sign    whether the message should be signed
      * @throws MetadataProviderException metadata error
      * @throws SAMLException             SAML encoding error
-     * @throws org.opensaml.ws.message.encoder.MessageEncodingException
+     * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *                                   message encoding error
      */
     protected void sendMessage(SAMLMessageContext context, boolean sign) throws MetadataProviderException, SAMLException, MessageEncodingException {
@@ -157,7 +157,7 @@ public abstract class AbstractProfileBase implements InitializingBean {
      * @param binding binding to use to send the message
      * @throws MetadataProviderException metadata error
      * @throws SAMLException             SAML encoding error
-     * @throws org.opensaml.ws.message.encoder.MessageEncodingException
+     * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *                                   message encoding error
      */
     protected void sendMessage(SAMLMessageContext context, boolean sign, String binding) throws MetadataProviderException, SAMLException, MessageEncodingException {

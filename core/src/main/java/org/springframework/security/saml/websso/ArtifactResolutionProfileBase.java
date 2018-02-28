@@ -31,7 +31,7 @@ import org.opensaml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecodingException;
-import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.util.Base64;
 import org.springframework.security.saml.context.SAMLMessageContext;
@@ -141,7 +141,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      * @param context     context with filled communicationProfileId, outboundMessage, outboundSAMLMessage, peerEntityEndpoint, peerEntityId, peerEntityMetadata, peerEntityRole, peerEntityRoleMetadata
      * @throws org.opensaml.common.SAMLException
      *          error processing artifact messages
-     * @throws org.opensaml.ws.message.encoder.MessageEncodingException
+     * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *          error sending artifactRequest
      * @throws org.opensaml.ws.message.decoder.MessageDecodingException
      *          error retrieveing articatResponse

@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.log;
 
-import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.http.HTTPInTransport;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;

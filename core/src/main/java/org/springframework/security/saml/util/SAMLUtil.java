@@ -24,7 +24,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.*;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecodingException;
-import org.opensaml.ws.message.encoder.MessageEncodingException;
+import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.transport.InTransport;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;
 import org.opensaml.xml.Configuration;
@@ -381,7 +381,7 @@ public class SAMLUtil {
      *
      * @param message message the marshall and serialize
      * @return marshaled message
-     * @throws org.opensaml.ws.message.encoder.MessageEncodingException
+     * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *          thrown if the give message can not be marshaled into its DOM representation
      */
     public static Element marshallMessage(XMLObject message) throws MessageEncodingException {
@@ -415,7 +415,7 @@ public class SAMLUtil {
      * @param signingCredential credential to sign with
      * @param signingAlgorithm  signing algorithm to use (optional). Leave null to use credential's default algorithm
      * @param keyInfoGenerator name of generator used to create KeyInfo elements with key data
-     * @throws org.opensaml.ws.message.encoder.MessageEncodingException
+     * @throws org.opensaml.messaging.encoder.MessageEncodingException
      *          thrown if there is a problem marshalling or signing the message
      * @return marshalled and signed message
      */
