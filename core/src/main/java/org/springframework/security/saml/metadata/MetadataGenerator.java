@@ -26,10 +26,10 @@ import org.opensaml.saml.saml2.metadata.*;
 import org.opensaml.saml.ext.idpdisco.DiscoveryResponse;
 import net.shibboleth.utilities.java.support.net.URLBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
-import org.opensaml.xml.security.SecurityHelper;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.credential.UsageType;
 import org.opensaml.xmlsec.keyinfo.KeyInfoGenerator;
+import org.opensaml.xmlsec.keyinfo.KeyInfoSupport;
 import org.opensaml.xmlsec.signature.KeyInfo;
 import net.shibboleth.utilities.java.support.collection.Pair;
 import org.slf4j.Logger;
@@ -252,7 +252,7 @@ public class MetadataGenerator {
             if (extendedMetadata != null && extendedMetadata.getKeyInfoGeneratorName() != null) {
                 keyInfoGeneratorName = extendedMetadata.getKeyInfoGeneratorName();
             }
-            KeyInfoGenerator keyInfoGenerator = SecurityHelper.getKeyInfoGenerator(credential, null, keyInfoGeneratorName);
+            KeyInfoGenerator keyInfoGenerator = KeyInfoSupport.getKeyInfoGenerator(credential, null, keyInfoGeneratorName);
             return keyInfoGenerator.generate(credential);
         } catch (org.opensaml.security.SecurityException e) {
             log.error("Can't obtain key from the keystore or generate key info for credential: " + credential, e);
