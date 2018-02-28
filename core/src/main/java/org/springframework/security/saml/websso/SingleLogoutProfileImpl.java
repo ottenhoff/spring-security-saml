@@ -17,8 +17,8 @@ package org.springframework.security.saml.websso;
 
 import org.joda.time.DateTime;
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLObject;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObject;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.SAMLVersion;
 import org.opensaml.saml2.core.*;
 import org.opensaml.saml2.metadata.Endpoint;
@@ -273,7 +273,7 @@ public class SingleLogoutProfileImpl extends AbstractProfileBase implements Sing
         return id;
     }
 
-    public void processLogoutResponse(SAMLMessageContext context) throws SAMLException, org.opensaml.xml.security.SecurityException, ValidationException {
+    public void processLogoutResponse(SAMLMessageContext context) throws SAMLException, org.opensaml.security.SecurityException, ValidationException {
 
         SAMLObject message = context.getInboundSAMLMessage();
 

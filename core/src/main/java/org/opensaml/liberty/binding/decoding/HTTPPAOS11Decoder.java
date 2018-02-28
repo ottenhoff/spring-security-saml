@@ -22,7 +22,7 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import org.opensaml.common.binding.SAMLMessageContext;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPSOAP11Decoder;
 import org.opensaml.saml2.ecp.RelayState;
 import org.opensaml.saml2.ecp.impl.RelayStateImpl;

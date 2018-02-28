@@ -29,8 +29,8 @@ import org.springframework.security.saml.context.SAMLMessageContext;
  */
 public interface SAMLProcessor {
 
-    SAMLMessageContext retrieveMessage(SAMLMessageContext context, String binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.xml.security.SecurityException;
-    SAMLMessageContext retrieveMessage(SAMLMessageContext context) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.xml.security.SecurityException;
+    SAMLMessageContext retrieveMessage(SAMLMessageContext context, String binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.security.SecurityException;
+    SAMLMessageContext retrieveMessage(SAMLMessageContext context) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.security.SecurityException;
     SAMLMessageContext sendMessage(SAMLMessageContext context, boolean sign, String binding) throws SAMLException, MetadataProviderException, MessageEncodingException;
     SAMLMessageContext sendMessage(SAMLMessageContext context, boolean sign) throws SAMLException, MetadataProviderException, MessageEncodingException;
     

@@ -18,12 +18,12 @@ package org.springframework.security.saml.websso;
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.SAMLVersion;
 import org.opensaml.common.binding.artifact.SAMLArtifactMap;
 import org.opensaml.common.binding.decoding.BasicURLComparator;
 import org.opensaml.common.binding.decoding.URIComparator;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.*;
 import org.opensaml.saml2.metadata.Endpoint;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
@@ -32,7 +32,7 @@ import org.opensaml.security.MetadataCriteria;
 import org.opensaml.security.SAMLSignatureProfileValidator;
 import org.opensaml.ws.message.encoder.MessageEncodingException;
 import org.opensaml.xml.XMLObjectBuilderFactory;
-import org.opensaml.xml.security.CriteriaSet;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.xml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
@@ -254,7 +254,7 @@ public abstract class AbstractProfileBase implements InitializingBean {
         }
     }
 
-    protected void verifySignature(Signature signature, String IDPEntityID, SignatureTrustEngine trustEngine) throws org.opensaml.xml.security.SecurityException, ValidationException {
+    protected void verifySignature(Signature signature, String IDPEntityID, SignatureTrustEngine trustEngine) throws org.opensaml.security.SecurityException, ValidationException {
 
         if (trustEngine == null) {
             throw new SecurityException("Trust engine is not set, signature can't be verified");

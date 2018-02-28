@@ -15,9 +15,9 @@
 package org.springframework.security.saml.metadata;
 
 import org.opensaml.Configuration;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.SAMLRuntimeException;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.common.Extensions;
 import org.opensaml.saml2.common.impl.ExtensionsBuilder;
 import org.opensaml.saml2.core.AuthnRequest;
@@ -27,7 +27,7 @@ import org.opensaml.samlext.idpdisco.DiscoveryResponse;
 import org.opensaml.util.URLBuilder;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.security.SecurityHelper;
-import org.opensaml.xml.security.credential.Credential;
+import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.security.credential.UsageType;
 import org.opensaml.xml.security.keyinfo.KeyInfoGenerator;
 import org.opensaml.xml.signature.KeyInfo;
@@ -254,7 +254,7 @@ public class MetadataGenerator {
             }
             KeyInfoGenerator keyInfoGenerator = SecurityHelper.getKeyInfoGenerator(credential, null, keyInfoGeneratorName);
             return keyInfoGenerator.generate(credential);
-        } catch (org.opensaml.xml.security.SecurityException e) {
+        } catch (org.opensaml.security.SecurityException e) {
             log.error("Can't obtain key from the keystore or generate key info for credential: " + credential, e);
             throw new SAMLRuntimeException("Can't obtain key from keystore or generate key info", e);
         }

@@ -15,10 +15,10 @@
 package org.springframework.security.saml.key;
 
 import org.opensaml.common.SAMLRuntimeException;
-import org.opensaml.xml.security.CriteriaSet;
-import org.opensaml.xml.security.SecurityException;
-import org.opensaml.xml.security.credential.Credential;
-import org.opensaml.xml.security.credential.CredentialResolver;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
+import org.opensaml.security.SecurityException;
+import org.opensaml.security.credential.Credential;
+import org.opensaml.security.credential.CredentialResolver;
 import org.opensaml.xml.security.credential.KeyStoreCredentialResolver;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.slf4j.Logger;
@@ -163,7 +163,7 @@ public class JKSKeyManager implements KeyManager {
         }
     }
 
-    public Iterable<Credential> resolve(CriteriaSet criteriaSet) throws org.opensaml.xml.security.SecurityException {
+    public Iterable<Credential> resolve(CriteriaSet criteriaSet) throws org.opensaml.security.SecurityException {
         return credentialResolver.resolve(criteriaSet);
     }
 
@@ -189,7 +189,7 @@ public class JKSKeyManager implements KeyManager {
             EntityIDCriteria criteria = new EntityIDCriteria(keyName);
             cs.add(criteria);
             return resolveSingle(cs);
-        } catch (org.opensaml.xml.security.SecurityException e) {
+        } catch (org.opensaml.security.SecurityException e) {
             throw new SAMLRuntimeException("Can't obtain SP signing key", e);
         }
 

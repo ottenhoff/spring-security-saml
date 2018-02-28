@@ -15,7 +15,7 @@
 package org.springframework.security.saml.processor;
 
 import org.opensaml.common.binding.security.SAMLProtocolMessageXMLSignatureSecurityPolicyRule;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPRedirectDeflateDecoder;
 import org.opensaml.saml2.binding.encoding.HTTPRedirectDeflateEncoder;
 import org.opensaml.saml2.binding.security.SAML2HTTPRedirectDeflateSignatureRule;

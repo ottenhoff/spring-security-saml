@@ -16,7 +16,7 @@ package org.springframework.security.saml.parser;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.impl.ActionImpl;
 import org.opensaml.ws.message.encoder.MessageEncodingException;

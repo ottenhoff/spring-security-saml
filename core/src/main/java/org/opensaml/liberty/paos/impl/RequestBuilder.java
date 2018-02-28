@@ -17,7 +17,7 @@
 package org.opensaml.liberty.paos.impl;
 
 import org.opensaml.common.impl.AbstractSAMLObjectBuilder;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.liberty.paos.Request;
 
 public class RequestBuilder extends AbstractSAMLObjectBuilder<Request> {

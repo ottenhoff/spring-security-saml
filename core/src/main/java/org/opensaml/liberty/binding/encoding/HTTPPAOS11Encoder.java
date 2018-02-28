@@ -17,10 +17,10 @@
 package org.opensaml.liberty.binding.encoding;
 
 import org.opensaml.Configuration;
-import org.opensaml.common.SAMLObject;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObject;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.binding.SAMLMessageContext;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.encoding.BaseSAML2MessageEncoder;
 import org.opensaml.saml2.binding.encoding.HTTPSOAP11Encoder;
 import org.opensaml.saml2.ecp.RelayState;

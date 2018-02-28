@@ -14,9 +14,9 @@
  */
 package org.springframework.security.saml.key;
 
-import org.opensaml.xml.security.CriteriaSet;
-import org.opensaml.xml.security.SecurityException;
-import org.opensaml.xml.security.credential.Credential;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
+import org.opensaml.security.SecurityException;
+import org.opensaml.security.credential.Credential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

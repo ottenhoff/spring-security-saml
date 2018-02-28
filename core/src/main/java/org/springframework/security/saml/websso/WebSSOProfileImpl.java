@@ -15,7 +15,7 @@
 package org.springframework.security.saml.websso;
 
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.common.SAMLRuntimeException;
 import org.opensaml.common.SAMLVersion;
 import org.opensaml.saml2.core.*;
@@ -215,9 +215,9 @@ public class WebSSOProfileImpl extends AbstractProfileBase implements WebSSOProf
      * @throws MetadataProviderException in case system can't verify whether endpoint is supported or not
      */
     protected boolean isEndpointSupported(SingleSignOnService endpoint) throws MetadataProviderException {
-        return org.opensaml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI.equals(endpoint.getBinding()) ||
-                org.opensaml.common.xml.SAMLConstants.SAML2_ARTIFACT_BINDING_URI.equals(endpoint.getBinding()) ||
-                org.opensaml.common.xml.SAMLConstants.SAML2_REDIRECT_BINDING_URI.equals(endpoint.getBinding());
+        return org.opensaml.saml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI.equals(endpoint.getBinding()) ||
+                org.opensaml.saml.common.xml.SAMLConstants.SAML2_ARTIFACT_BINDING_URI.equals(endpoint.getBinding()) ||
+                org.opensaml.saml.common.xml.SAMLConstants.SAML2_REDIRECT_BINDING_URI.equals(endpoint.getBinding());
     }
 
     /**
@@ -229,8 +229,8 @@ public class WebSSOProfileImpl extends AbstractProfileBase implements WebSSOProf
      * @throws MetadataProviderException in case system can't verify whether endpoint is supported or not
      */
     protected boolean isEndpointSupported(AssertionConsumerService endpoint) throws MetadataProviderException {
-        return org.opensaml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI.equals(endpoint.getBinding()) |
-                org.opensaml.common.xml.SAMLConstants.SAML2_ARTIFACT_BINDING_URI.equals(endpoint.getBinding());
+        return org.opensaml.saml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI.equals(endpoint.getBinding()) |
+                org.opensaml.saml.common.xml.SAMLConstants.SAML2_ARTIFACT_BINDING_URI.equals(endpoint.getBinding());
     }
 
     /**

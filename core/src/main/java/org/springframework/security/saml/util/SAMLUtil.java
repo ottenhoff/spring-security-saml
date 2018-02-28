@@ -20,7 +20,7 @@ import org.opensaml.common.SAMLException;
 import org.opensaml.common.SAMLRuntimeException;
 import org.opensaml.common.binding.decoding.BasicURLComparator;
 import org.opensaml.common.binding.decoding.URIComparator;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.*;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecodingException;
@@ -33,7 +33,7 @@ import org.opensaml.xml.XMLObjectBuilder;
 import org.opensaml.xml.io.Marshaller;
 import org.opensaml.xml.io.MarshallingException;
 import org.opensaml.xml.security.SecurityHelper;
-import org.opensaml.xml.security.credential.Credential;
+import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.signature.*;
 import org.opensaml.xml.util.DatatypeHelper;
 import org.opensaml.xml.util.XMLHelper;
@@ -321,8 +321,8 @@ public class SAMLUtil {
         String paosHeader = request.getHeader(org.springframework.security.saml.SAMLConstants.PAOS_HTTP_HEADER);
         return acceptHeader != null && paosHeader != null
                 && acceptHeader.contains(org.springframework.security.saml.SAMLConstants.PAOS_HTTP_ACCEPT_HEADER)
-                && paosHeader.contains(org.opensaml.common.xml.SAMLConstants.PAOS_NS)
-                && paosHeader.contains(org.opensaml.common.xml.SAMLConstants.SAML20ECP_NS);
+                && paosHeader.contains(org.opensaml.saml.common.xml.SAMLConstants.PAOS_NS)
+                && paosHeader.contains(org.opensaml.saml.common.xml.SAMLConstants.SAML20ECP_NS);
 
     }
 
@@ -436,7 +436,7 @@ public class SAMLUtil {
 
             try {
                 SecurityHelper.prepareSignatureParams(signature, signingCredential, null, keyInfoGenerator);
-            } catch (org.opensaml.xml.security.SecurityException e) {
+            } catch (org.opensaml.security.SecurityException e) {
                 throw new MessageEncodingException("Error preparing signature for signing", e);
             }
 

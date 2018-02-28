@@ -24,7 +24,7 @@ import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.security.MetadataCriteria;
@@ -33,7 +33,7 @@ import org.opensaml.ws.message.encoder.MessageEncodingException;
 import org.opensaml.ws.soap.client.http.TLSProtocolSocketFactory;
 import org.opensaml.ws.transport.http.HttpClientInTransport;
 import org.opensaml.ws.transport.http.HttpClientOutTransport;
-import org.opensaml.xml.security.CriteriaSet;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.xml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
@@ -70,10 +70,10 @@ public class ArtifactResolutionProfileImpl extends ArtifactResolutionProfileBase
      * @throws MessageEncodingException  error sending artifactRequest
      * @throws MessageDecodingException  error retrieving artifactResponse
      * @throws MetadataProviderException error resolving metadata
-     * @throws org.opensaml.xml.security.SecurityException
+     * @throws org.opensaml.security.SecurityException
      *                                   invalid message signature
      */
-    protected void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.xml.security.SecurityException {
+    protected void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.security.SecurityException {
 
         PostMethod postMethod = null;
 

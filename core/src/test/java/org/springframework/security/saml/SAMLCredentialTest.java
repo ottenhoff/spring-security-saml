@@ -20,7 +20,7 @@ import org.junit.Test;
 import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
 import org.opensaml.common.BaseTestCase;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.core.*;
 
 import java.io.ByteArrayInputStream;

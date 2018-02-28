@@ -16,7 +16,7 @@ package org.springframework.security.saml.processor;
 
 import org.apache.velocity.app.VelocityEngine;
 import org.opensaml.common.binding.security.SAMLProtocolMessageXMLSignatureSecurityPolicyRule;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPArtifactDecoderImpl;
 import org.opensaml.saml2.binding.encoding.HTTPArtifactEncoder;
 import org.opensaml.ws.message.decoder.MessageDecoder;

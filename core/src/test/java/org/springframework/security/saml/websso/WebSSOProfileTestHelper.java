@@ -2,7 +2,7 @@ package org.springframework.security.saml.websso;
 
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.core.*;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.schema.XSString;

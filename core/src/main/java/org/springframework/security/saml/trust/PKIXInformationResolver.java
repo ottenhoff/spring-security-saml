@@ -20,9 +20,9 @@ import org.opensaml.saml2.metadata.provider.MetadataProvider;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.saml2.metadata.provider.ObservableMetadataProvider;
 import org.opensaml.security.MetadataCriteria;
-import org.opensaml.xml.security.CriteriaSet;
-import org.opensaml.xml.security.SecurityException;
-import org.opensaml.xml.security.credential.Credential;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
+import org.opensaml.security.SecurityException;
+import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
@@ -442,7 +442,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
         }
     }
 
-    public Set<String> resolveTrustedNames(CriteriaSet criteriaSet) throws org.opensaml.xml.security.SecurityException, UnsupportedOperationException {
+    public Set<String> resolveTrustedNames(CriteriaSet criteriaSet) throws org.opensaml.security.SecurityException, UnsupportedOperationException {
         throw new UnsupportedOperationException("Method isn't supported");
     }
 

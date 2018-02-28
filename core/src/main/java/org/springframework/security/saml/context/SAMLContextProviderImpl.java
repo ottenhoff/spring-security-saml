@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.context;
 
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.encryption.Decrypter;
 import org.opensaml.saml2.encryption.EncryptedElementTypeEncryptedKeyResolver;
 import org.opensaml.saml2.metadata.EntityDescriptor;
@@ -32,7 +32,7 @@ import org.opensaml.xml.Configuration;
 import org.opensaml.xml.encryption.ChainingEncryptedKeyResolver;
 import org.opensaml.xml.encryption.InlineEncryptedKeyResolver;
 import org.opensaml.xml.encryption.SimpleRetrievalMethodEncryptedKeyResolver;
-import org.opensaml.xml.security.credential.Credential;
+import org.opensaml.security.credential.Credential;
 import org.opensaml.xml.security.keyinfo.KeyInfoCredentialResolver;
 import org.opensaml.xml.security.keyinfo.StaticKeyInfoCredentialResolver;
 import org.opensaml.xml.security.trust.ExplicitX509CertificateTrustEngine;

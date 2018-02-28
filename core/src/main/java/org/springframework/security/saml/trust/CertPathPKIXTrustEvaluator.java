@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.trust;
 
-import org.opensaml.xml.security.SecurityException;
+import org.opensaml.security.SecurityException;
 import org.opensaml.xml.security.x509.PKIXValidationInformation;
 import org.opensaml.xml.security.x509.PKIXValidationOptions;
 import org.opensaml.xml.security.x509.X509Credential;
@@ -61,7 +61,7 @@ public class CertPathPKIXTrustEvaluator extends org.opensaml.xml.security.x509.C
 
     /** {@inheritDoc} */
     public boolean validate(PKIXValidationInformation validationInfo, X509Credential untrustedCredential)
-            throws org.opensaml.xml.security.SecurityException {
+            throws org.opensaml.security.SecurityException {
 
         if (log.isDebugEnabled()) {
             log.debug("Attempting PKIX path validation on untrusted credential: {}",

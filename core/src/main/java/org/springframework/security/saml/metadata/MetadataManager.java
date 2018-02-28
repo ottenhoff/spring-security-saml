@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.metadata;
 
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.*;
 import org.opensaml.saml2.metadata.provider.*;
 import org.opensaml.xml.Configuration;

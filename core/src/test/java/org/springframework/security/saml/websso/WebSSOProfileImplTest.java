@@ -17,7 +17,7 @@ package org.springframework.security.saml.websso;
 import org.junit.Before;
 import org.junit.Test;
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
@@ -186,8 +186,8 @@ public class WebSSOProfileImplTest {
         assertEquals("http://localhost:8081/spring-security-saml2-webapp", authnRequest.getIssuer().getValue());
         assertEquals("http://localhost:8081/spring-security-saml2-webapp/saml/SSO", authnRequest.getAssertionConsumerServiceURL());
         assertEquals("http://localhost:8080/opensso/SSORedirect/metaAlias/idp", authnRequest.getDestination());
-        assertEquals(org.opensaml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI, authnRequest.getProtocolBinding());
-        assertEquals(org.opensaml.common.xml.SAMLConstants.SAML2_REDIRECT_BINDING_URI, samlContext.getPeerEntityEndpoint().getBinding());
+        assertEquals(org.opensaml.saml.common.xml.SAMLConstants.SAML2_POST_BINDING_URI, authnRequest.getProtocolBinding());
+        assertEquals(org.opensaml.saml.common.xml.SAMLConstants.SAML2_REDIRECT_BINDING_URI, samlContext.getPeerEntityEndpoint().getBinding());
         verifyMock();
 
     }

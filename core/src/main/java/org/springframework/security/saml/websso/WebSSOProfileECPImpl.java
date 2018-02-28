@@ -16,8 +16,8 @@
 package org.springframework.security.saml.websso;
 
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLObjectBuilder;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.ecp.Request;
 import org.opensaml.saml2.metadata.AssertionConsumerService;

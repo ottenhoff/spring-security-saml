@@ -4,7 +4,7 @@ import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
-import org.opensaml.xml.security.CriteriaSet;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.xml.security.trust.TrustEngine;
 import org.opensaml.xml.security.x509.*;
 import org.slf4j.Logger;

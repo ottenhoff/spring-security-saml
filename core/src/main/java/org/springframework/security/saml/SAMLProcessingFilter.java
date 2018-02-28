@@ -95,7 +95,7 @@ public class SAMLProcessingFilter extends AbstractAuthenticationProcessingFilter
         } catch (MessageDecodingException e) {
             logger.debug("Error decoding incoming SAML message", e);
             throw new AuthenticationServiceException("Error decoding incoming SAML message", e);
-        } catch (org.opensaml.xml.security.SecurityException e) {
+        } catch (org.opensaml.security.SecurityException e) {
             logger.debug("Incoming SAML message is invalid", e);
             throw new AuthenticationServiceException("Incoming SAML message is invalid", e);
         }

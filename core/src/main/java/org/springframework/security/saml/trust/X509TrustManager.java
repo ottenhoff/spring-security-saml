@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.trust;
 
-import org.opensaml.xml.security.CriteriaSet;
+import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.xml.security.credential.UsageType;
 import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.trust.TrustEngine;
@@ -90,7 +90,7 @@ public class X509TrustManager implements javax.net.ssl.X509TrustManager {
                 sb.append("is not trusted, add the certificate or it's CA to your trust store and optionally update tlsKey in extended metadata with the certificate's alias");
                 throw new UntrustedCertificateException(sb.toString(), x509Certificates);
             }
-        } catch (org.opensaml.xml.security.SecurityException e) {
+        } catch (org.opensaml.security.SecurityException e) {
             throw new CertificateException("Error validating certificate", e);
         }
 

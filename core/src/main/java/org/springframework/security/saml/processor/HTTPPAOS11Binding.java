@@ -15,7 +15,7 @@
  */
 package org.springframework.security.saml.processor;
 
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.liberty.binding.decoding.HTTPPAOS11Decoder;
 import org.opensaml.liberty.binding.encoding.HTTPPAOS11Encoder;
 import org.opensaml.ws.message.decoder.MessageDecoder;

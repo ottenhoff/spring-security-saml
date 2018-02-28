@@ -18,8 +18,8 @@ package org.springframework.security.saml.websso;
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.SAMLObject;
-import org.opensaml.common.SAMLObjectBuilder;
+import org.opensaml.saml.common.SAMLObject;
+import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml2.binding.artifact.SAML2ArtifactType0004;
 import org.opensaml.saml2.binding.artifact.SAML2ArtifactType0004Builder;
 import org.opensaml.saml2.core.Artifact;
@@ -124,7 +124,7 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
             throw new MessageDecodingException("Could not encode artifact resolve message", e);
         } catch (MessageDecodingException e) {
             throw new MessageDecodingException("Could not decode artifact response message", e);
-        } catch (org.opensaml.xml.security.SecurityException e) {
+        } catch (org.opensaml.security.SecurityException e) {
             throw new MessageDecodingException("Security error when decoding artifact response message", e);
         } catch (SAMLException e) {
             throw new MessageDecodingException("Error during message processing", e);
@@ -147,10 +147,10 @@ public abstract class ArtifactResolutionProfileBase extends AbstractProfileBase 
      *          error retrieveing articatResponse
      * @throws org.opensaml.saml2.metadata.provider.MetadataProviderException
      *          error resolving metadata
-     * @throws org.opensaml.xml.security.SecurityException
+     * @throws org.opensaml.security.SecurityException
      *          invalid message signature
      */
-    protected abstract void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.xml.security.SecurityException;
+    protected abstract void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, MetadataProviderException, org.opensaml.security.SecurityException;
 
     protected ArtifactResolve createArtifactResolve(SAMLMessageContext context, String artifactId, Endpoint endpoint) {
 

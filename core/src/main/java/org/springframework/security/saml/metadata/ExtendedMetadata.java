@@ -481,7 +481,7 @@ public class ExtendedMetadata implements Serializable, Cloneable {
     /**
      * Sets the signing algorithm to use when signing the SAML messages.
      * This can be used, for example, when a strong algorithm is required (e.g. SHA 256 instead of SHA 128).
-     * If this property is null, then the {@link org.opensaml.xml.security.credential.Credential} default algorithm will be used instead.
+     * If this property is null, then the {@link org.opensaml.security.credential.Credential} default algorithm will be used instead.
      *
      * Value only applies to local entities.
      *

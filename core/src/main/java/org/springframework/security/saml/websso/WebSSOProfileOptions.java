@@ -59,9 +59,9 @@ public class WebSSOProfileOptions implements Serializable, Cloneable {
      * Sets binding to be used for for sending SAML message to IDP.
      *
      * @param binding binding value
-     * @see org.opensaml.common.xml.SAMLConstants#SAML2_POST_BINDING_URI
-     * @see org.opensaml.common.xml.SAMLConstants#SAML2_REDIRECT_BINDING_URI
-     * @see org.opensaml.common.xml.SAMLConstants#SAML2_PAOS_BINDING_URI
+     * @see org.opensaml.saml.common.xml.SAMLConstants#SAML2_POST_BINDING_URI
+     * @see org.opensaml.saml.common.xml.SAMLConstants#SAML2_REDIRECT_BINDING_URI
+     * @see org.opensaml.saml.common.xml.SAMLConstants#SAML2_PAOS_BINDING_URI
      * @see org.springframework.security.saml.SAMLConstants#SAML2_HOK_WEBSSO_PROFILE_URI
      */
     public void setBinding(String binding) {

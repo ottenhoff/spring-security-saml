@@ -140,7 +140,7 @@ public class SAMLLogoutProcessingFilter extends LogoutFilter {
             } catch (MessageDecodingException e) {
                 logger.debug("Error decoding incoming SAML message", e);
                 throw new ServletException("Error decoding incoming SAML message", e);
-            } catch (org.opensaml.xml.security.SecurityException e) {
+            } catch (org.opensaml.security.SecurityException e) {
                 logger.debug("Incoming SAML message failed security validation", e);
                 throw new ServletException("Incoming SAML message failed security validation", e);
             }

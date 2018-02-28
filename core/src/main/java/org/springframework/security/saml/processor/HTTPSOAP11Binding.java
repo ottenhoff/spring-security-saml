@@ -15,7 +15,7 @@
 package org.springframework.security.saml.processor;
 
 import org.opensaml.common.binding.security.SAMLProtocolMessageXMLSignatureSecurityPolicyRule;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPSOAP11DecoderImpl;
 import org.opensaml.saml2.binding.encoding.HTTPSOAP11Encoder;
 import org.opensaml.ws.message.decoder.MessageDecoder;

@@ -15,7 +15,7 @@
 package org.springframework.security.saml.processor;
 
 import org.opensaml.common.SAMLException;
-import org.opensaml.common.xml.SAMLConstants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.Endpoint;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
@@ -82,10 +82,10 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      * @throws SAMLException             error retrieving the message from the request
      * @throws MetadataProviderException error retrieving metadata
      * @throws MessageDecodingException  error decoding the message
-     * @throws org.opensaml.xml.security.SecurityException
+     * @throws org.opensaml.security.SecurityException
      *                                   error verifying message
      */
-    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext, SAMLBinding binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.xml.security.SecurityException {
+    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext, SAMLBinding binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.security.SecurityException {
 
         log.debug("Retrieving message using binding {}", binding.getBindingURI());
 
@@ -144,10 +144,10 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      *          error retrieving metadat
      * @throws org.opensaml.ws.message.decoder.MessageDecodingException
      *          error decoding the message
-     * @throws org.opensaml.xml.security.SecurityException
+     * @throws org.opensaml.security.SecurityException
      *          error verifying message
      */
-    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext, String binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.xml.security.SecurityException {
+    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext, String binding) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.security.SecurityException {
 
         return retrieveMessage(samlContext, getBinding(binding));
 
@@ -164,10 +164,10 @@ public class SAMLProcessorImpl implements SAMLProcessor {
      *          error retrieving metadat
      * @throws org.opensaml.ws.message.decoder.MessageDecodingException
      *          error decoding the message
-     * @throws org.opensaml.xml.security.SecurityException
+     * @throws org.opensaml.security.SecurityException
      *          error verifying message
      */
-    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.xml.security.SecurityException {
+    public SAMLMessageContext retrieveMessage(SAMLMessageContext samlContext) throws SAMLException, MetadataProviderException, MessageDecodingException, org.opensaml.security.SecurityException {
 
         return retrieveMessage(samlContext, getBinding(samlContext.getInboundMessageTransport()));
 

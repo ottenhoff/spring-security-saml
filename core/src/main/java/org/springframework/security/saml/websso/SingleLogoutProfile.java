@@ -75,9 +75,9 @@ public interface SingleLogoutProfile {
      *
      * @param context        context containing processed SAML message
      * @throws SAMLException       in case the received SAML message is malformed or invalid
-     * @throws org.opensaml.xml.security.SecurityException in case the signature of the message is not trusted
+     * @throws org.opensaml.security.SecurityException in case the signature of the message is not trusted
      * @throws ValidationException in case the signature of the message is invalid
      */
-    void processLogoutResponse(SAMLMessageContext context) throws SAMLException, org.opensaml.xml.security.SecurityException, ValidationException;
+    void processLogoutResponse(SAMLMessageContext context) throws SAMLException, org.opensaml.security.SecurityException, ValidationException;
 
 }
