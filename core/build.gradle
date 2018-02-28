@@ -9,12 +9,8 @@ dependencies {
 		exclude group: "org.springframework", module: "spring-tx"
 	}
 	compile group: 'net.shibboleth.utilities', name: 'java-support', version: '7.3.0'
-	compile ("org.opensaml:opensaml-saml-api:3.3.1") {
-		exclude group: "org.slf4j", module: "jcl-over-slf4j"
-		exclude group: "org.slf4j", module: "log4j-over-slf4j"
-		exclude group: "org.apache.xerces", module: "xml-apis"
-		exclude group: "org.apache.xerces", module: "serializer"
-	}
+  compile group: 'org.opensaml', name: 'opensaml-xmlsec-impl', version: '3.3.1'
+  compile group: 'org.opensaml', name: 'opensaml-saml-impl', version: '3.3.1'
 	compile ("org.opensaml:opensaml-core:3.3.1") {
 		exclude group: "org.slf4j", module: "jcl-over-slf4j"
 		exclude group: "org.slf4j", module: "log4j-over-slf4j"
