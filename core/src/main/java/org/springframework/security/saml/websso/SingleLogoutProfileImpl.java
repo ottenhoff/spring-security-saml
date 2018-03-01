@@ -28,7 +28,7 @@ import org.opensaml.saml.saml2.metadata.SingleLogoutService;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObject;
-import org.opensaml.xml.encryption.DecryptionException;
+import org.opensaml.xmlsec.encryption.support.DecryptionException;
 import org.opensaml.xml.validation.ValidationException;
 import org.springframework.security.saml.SAMLConstants;
 import org.springframework.security.saml.SAMLCredential;

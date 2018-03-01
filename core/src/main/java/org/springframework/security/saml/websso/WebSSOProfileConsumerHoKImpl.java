@@ -17,7 +17,7 @@ package org.springframework.security.saml.websso;
 import org.opensaml.saml.common.SAMLException;
 import org.opensaml.saml.saml2.core.*;
 import org.opensaml.core.xml.XMLObject;
-import org.opensaml.xml.encryption.DecryptionException;
+import org.opensaml.xmlsec.encryption.support.DecryptionException;
 import org.opensaml.xmlsec.signature.KeyInfo;
 import org.opensaml.xml.util.Base64;
 import org.springframework.security.saml.SAMLConstants;
@@ -54,7 +54,7 @@ public class WebSSOProfileConsumerHoKImpl extends WebSSOProfileConsumerImpl impl
      * @param context context
      * @throws org.opensaml.saml.common.SAMLException
      *          error validating the object
-     * @throws org.opensaml.xml.encryption.DecryptionException
+     * @throws org.opensaml.xmlsec.encryption.support.DecryptionException
      *          in case the NameID can't be decrypted
      */
     protected void verifySubject(Subject subject, AuthnRequest request, SAMLMessageContext context) throws SAMLException, DecryptionException {

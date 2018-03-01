@@ -17,7 +17,7 @@ package org.springframework.security.saml;
 import org.opensaml.core.config.Configuration;
 import org.opensaml.PaosBootstrap;
 import org.opensaml.xml.ConfigurationException;
-import org.opensaml.xml.security.keyinfo.NamedKeyInfoGeneratorManager;
+import org.opensaml.xmlsec.keyinfo.NamedKeyInfoGeneratorManager;
 import org.opensaml.xml.security.x509.X509KeyInfoGeneratorFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
