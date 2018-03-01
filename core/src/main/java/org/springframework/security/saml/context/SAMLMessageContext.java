@@ -16,7 +16,7 @@
 package org.springframework.security.saml.context;
 
 import org.opensaml.common.binding.BasicSAMLMessageContext;
-import org.opensaml.saml2.encryption.Decrypter;
+import org.opensaml.saml.saml2.encryption.Decrypter;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.trust.TrustEngine;
