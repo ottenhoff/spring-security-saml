@@ -35,11 +35,11 @@ import org.opensaml.xmlsec.encryption.support.SimpleRetrievalMethodEncryptedKeyR
 import org.opensaml.security.credential.Credential;
 import org.opensaml.xmlsec.keyinfo.KeyInfoCredentialResolver;
 import org.opensaml.xmlsec.keyinfo.impl.StaticKeyInfoCredentialResolver;
-import org.opensaml.xml.security.trust.ExplicitX509CertificateTrustEngine;
-import org.opensaml.xml.security.trust.TrustEngine;
+import org.opensaml.security.trust.impl.ExplicitX509CertificateTrustEngine;
+import org.opensaml.security.trust.TrustEngine;
 import org.opensaml.xml.security.x509.*;
 import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
-import org.opensaml.xml.signature.impl.ExplicitKeySignatureTrustEngine;
+import org.opensaml.xmlsec.signature.support.impl.ExplicitKeySignatureTrustEngine;
 import org.opensaml.xmlsec.signature.support.impl.PKIXSignatureTrustEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
