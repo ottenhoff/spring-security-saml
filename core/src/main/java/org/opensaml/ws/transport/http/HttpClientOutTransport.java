@@ -15,10 +15,10 @@
  */
 package org.opensaml.ws.transport.http;
 
-import org.apache.commons.httpclient.HttpVersion;
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.commons.httpclient.methods.RequestEntity;
-import org.apache.commons.httpclient.params.HttpParams;
+import org.apache.http.params.HttpParams;
 import org.opensaml.ws.transport.http.httpclient.OutputStreamRequestEntity;
 import org.opensaml.security.credential.Credential;
 
@@ -33,9 +33,9 @@ import java.util.List;
  */
 public class HttpClientOutTransport implements HTTPOutTransport {
 
-    private final PostMethod postMethod;
+    private final HttpPost postMethod;
 
-    public HttpClientOutTransport(PostMethod postMethod) {
+    public HttpClientOutTransport(HttpPost postMethod) {
         this.postMethod = postMethod;
     }
 

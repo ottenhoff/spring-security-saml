@@ -32,10 +32,11 @@ import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.XMLObjectBuilder;
 import org.opensaml.core.xml.io.Marshaller;
 import org.opensaml.core.xml.io.MarshallingException;
-import org.opensaml.xml.security.SecurityHelper;
 import org.opensaml.security.credential.Credential;
-import org.opensaml.xml.signature.*;
-import org.opensaml.xml.util.DatatypeHelper;
+import org.opensaml.xmlsec.signature.*;
+import org.opensaml.util.StringSupport;
+import org.opensaml.xmlsec.signature.support.SignatureSupport;
+
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -297,7 +298,7 @@ public class SAMLUtil {
             return certList;
         }
 
-        for (org.opensaml.xml.signature.X509Certificate xmlCert : x509Data.getX509Certificates()) {
+        for (org.opensaml.xmlsec.signature.X509Certificate xmlCert : x509Data.getX509Certificates()) {
             if (xmlCert != null && xmlCert.getValue() != null) {
                 certList.add(xmlCert.getValue());
             }
@@ -340,7 +341,7 @@ public class SAMLUtil {
      */
     public static <T extends Endpoint> T getEndpoint(List<T> endpoints, String messageBinding, InTransport inTransport) throws SAMLException {
         HttpServletRequest httpRequest = ((HttpServletRequestAdapter)inTransport).getWrappedRequest();
-        String requestURL = DatatypeHelper.safeTrimOrNullString(httpRequest.getRequestURL().toString());
+        String requestURL = StringSupport.trimOrNull(httpRequest.getRequestURL().toString());
         for (T endpoint : endpoints) {
             String binding = getBindingForEndpoint(endpoint);
             // Check that destination and binding matches
@@ -435,7 +436,7 @@ public class SAMLUtil {
             signature.setSigningCredential(signingCredential);
 
             try {
-                SecurityHelper.prepareSignatureParams(signature, signingCredential, null, keyInfoGenerator);
+                SignatureSupport.prepareSignatureParams(signature, signingCredential, null, keyInfoGenerator);
             } catch (org.opensaml.security.SecurityException e) {
                 throw new MessageEncodingException("Error preparing signature for signing", e);
             }

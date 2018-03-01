@@ -19,7 +19,7 @@ import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.URI;
 import org.apache.commons.httpclient.URIException;
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
@@ -75,12 +75,12 @@ public class ArtifactResolutionProfileImpl extends ArtifactResolutionProfileBase
      */
     protected void getArtifactResponse(String endpointURI, SAMLMessageContext context) throws SAMLException, MessageEncodingException, MessageDecodingException, ResolverException, org.opensaml.security.SecurityException {
 
-        PostMethod postMethod = null;
+        HttpPost postMethod = null;
 
         try {
 
             URI uri = new URI(context.getPeerEntityEndpoint().getLocation(), true, "UTF-8");
-            postMethod = new PostMethod();
+            postMethod = new HttpPost();
             postMethod.setPath(uri.getPath());
 
             HostConfiguration hc = getHostConfiguration(uri, context);

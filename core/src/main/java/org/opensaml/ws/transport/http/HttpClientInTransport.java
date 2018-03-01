@@ -15,7 +15,7 @@
  */
 package org.opensaml.ws.transport.http;
 
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.client.methods.HttpPost;
 import org.opensaml.security.credential.Credential;
 
 import java.io.IOException;
@@ -29,10 +29,10 @@ import java.util.List;
  */
 public class HttpClientInTransport implements HTTPInTransport, LocationAwareInTransport {
 
-    private final PostMethod postMethod;
+    private final HttpPost postMethod;
     private final String endpointURI;
 
-    public HttpClientInTransport(PostMethod postMethod, String endpointURI) {
+    public HttpClientInTransport(HttpPost postMethod, String endpointURI) {
         this.postMethod = postMethod;
         this.endpointURI = endpointURI;
     }

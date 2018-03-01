@@ -23,7 +23,7 @@ import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.transport.http.HTTPInTransport;
 import org.opensaml.ws.transport.http.HTTPOutTransport;
 import net.shibboleth.utilities.java.support.xml.ParserPool;
-import org.opensaml.xml.util.DatatypeHelper;
+import org.opensaml.util.StringSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.saml.websso.ArtifactResolutionProfile;
@@ -76,7 +76,7 @@ public class HTTPArtifactDecoderImpl extends BaseSAML2MessageDecoder {
         /*
          * Artifact parameter.
          */
-        String artifactId = DatatypeHelper.safeTrimOrNullString(inTransport.getParameterValue("SAMLart"));
+        String artifactId = StringSupport.trimOrNull(inTransport.getParameterValue("SAMLart"));
         if (artifactId == null) {
             log.error("SAMLart parameter was missing or did not contain a value.");
             throw new MessageDecodingException("SAMLArt parameter was missing or did not contain a value.");

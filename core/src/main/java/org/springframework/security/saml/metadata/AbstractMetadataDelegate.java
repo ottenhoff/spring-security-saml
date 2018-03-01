@@ -17,7 +17,7 @@ package org.springframework.security.saml.metadata;
 import org.opensaml.saml.saml2.metadata.EntitiesDescriptor;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.RoleDescriptor;
-import org.opensaml.saml.metadata.resolver.impl.*;
+import org.opensaml.saml.metadata.resolver.*;
 import org.opensaml.core.xml.XMLObject;
 import org.springframework.util.Assert;
 
@@ -31,12 +31,12 @@ import java.util.List;
  *
  * @author Vladimir Schaefer
  */
-public abstract class AbstractMetadataDelegate implements ObservableMetadataProvider {
+public abstract class AbstractMetadataDelegate implements ObservableMetadataResolver {
 
     /**
      * Wrapped entity the calls are delegated to.
      */
-    private MetadataProvider delegate;
+    private MetadataResolver delegate;
 
     /**
      * Observers, loaded from the provider.
