@@ -17,7 +17,7 @@ package org.springframework.security.saml.trust;
 
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.credential.UsageType;
-import org.opensaml.xml.security.criteria.EntityIDCriteria;
+import org.opensaml.xml.security.criteria.EntityIdCriterion;
 import org.opensaml.security.trust.TrustEngine;
 import org.opensaml.xml.security.x509.BasicX509Credential;
 import org.opensaml.xml.security.x509.X509Credential;
@@ -72,7 +72,7 @@ public class X509TrustManager implements javax.net.ssl.X509TrustManager {
         credential.setEntityCertificateChain(Arrays.asList(x509Certificates));
         credential.setUsageType(UsageType.UNSPECIFIED);
 
-        EntityIDCriteria entityIDCriteria = criteriaSet.get(EntityIDCriteria.class);
+        EntityIdCriterion entityIDCriteria = criteriaSet.get(EntityIdCriterion.class);
         if (entityIDCriteria != null) {
             credential.setEntityId(entityIDCriteria.getEntityID());
         }

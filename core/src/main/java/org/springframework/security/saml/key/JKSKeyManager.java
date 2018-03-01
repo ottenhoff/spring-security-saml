@@ -19,8 +19,8 @@ import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.credential.CredentialResolver;
-import org.opensaml.xml.security.credential.KeyStoreCredentialResolver;
-import org.opensaml.xml.security.criteria.EntityIDCriteria;
+import org.opensaml.security.credential.impl.KeyStoreCredentialResolver;
+import org.opensaml.core.criterion.EntityIdCriterion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -186,7 +186,7 @@ public class JKSKeyManager implements KeyManager {
 
         try {
             CriteriaSet cs = new CriteriaSet();
-            EntityIDCriteria criteria = new EntityIDCriteria(keyName);
+            EntityIdCriterion criteria = new EntityIdCriterion(keyName);
             cs.add(criteria);
             return resolveSingle(cs);
         } catch (org.opensaml.security.SecurityException e) {

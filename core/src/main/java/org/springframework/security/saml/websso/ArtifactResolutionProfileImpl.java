@@ -35,7 +35,7 @@ import org.opensaml.ws.transport.http.HttpClientInTransport;
 import org.opensaml.ws.transport.http.HttpClientOutTransport;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.credential.UsageType;
-import org.opensaml.xml.security.criteria.EntityIDCriteria;
+import org.opensaml.xml.security.criteria.EntityIdCriterion;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.trust.X509KeyManager;
@@ -162,7 +162,7 @@ public class ArtifactResolutionProfileImpl extends ArtifactResolutionProfileBase
                 log.debug("Using HTTPS configuration");
 
                 CriteriaSet criteriaSet = new CriteriaSet();
-                criteriaSet.add(new EntityIDCriteria(context.getPeerEntityId()));
+                criteriaSet.add(new EntityIdCriterion(context.getPeerEntityId()));
                 criteriaSet.add(new MetadataCriteria(IDPSSODescriptor.DEFAULT_ELEMENT_NAME, SAMLConstants.SAML20P_NS));
                 criteriaSet.add(new UsageCriteria(UsageType.UNSPECIFIED));
 

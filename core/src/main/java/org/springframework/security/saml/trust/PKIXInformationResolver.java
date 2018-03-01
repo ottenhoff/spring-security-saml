@@ -24,7 +24,7 @@ import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.SecurityException;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.security.credential.UsageType;
-import org.opensaml.xml.security.criteria.EntityIDCriteria;
+import org.opensaml.xml.security.criteria.EntityIdCriterion;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.opensaml.xml.security.x509.BasicPKIXValidationInformation;
 import org.opensaml.xml.security.x509.PKIXValidationInformation;
@@ -120,7 +120,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
 
         checkCriteriaRequirements(criteriaSet);
 
-        String entityID = criteriaSet.get(EntityIDCriteria.class).getEntityID();
+        String entityID = criteriaSet.get(EntityIdCriterion.class).getEntityID();
         MetadataCriteria mdCriteria = criteriaSet.get(MetadataCriteria.class);
         QName role = mdCriteria.getRole();
         String protocol = mdCriteria.getProtocol();
@@ -174,7 +174,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
      * @param criteriaSet the credential set to evaluate
      */
     protected void checkCriteriaRequirements(CriteriaSet criteriaSet) {
-        EntityIDCriteria entityCriteria = criteriaSet.get(EntityIDCriteria.class);
+        EntityIdCriterion entityCriteria = criteriaSet.get(EntityIdCriterion.class);
         MetadataCriteria mdCriteria = criteriaSet.get(MetadataCriteria.class);
         if (entityCriteria == null) {
             throw new IllegalArgumentException("Entity criteria must be supplied");
@@ -228,7 +228,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
      */
     protected void populateMetadataAnchors(CriteriaSet criteriaSet, Collection<X509Certificate> anchors, Collection<X509CRL> crls) throws SecurityException {
 
-        String entityID = criteriaSet.get(EntityIDCriteria.class).getEntityID();
+        String entityID = criteriaSet.get(EntityIdCriterion.class).getEntityID();
         log.debug("Attempting to retrieve PKIX trust anchors from metadata configuration for entity: {}", entityID);
         Iterable<Credential> metadataCredentials = metadataResolver.resolve(criteriaSet);
 
@@ -260,7 +260,7 @@ public class PKIXInformationResolver implements PKIXValidationInformationResolve
 
         try {
 
-            String entityID = criteriaSet.get(EntityIDCriteria.class).getEntityID();
+            String entityID = criteriaSet.get(EntityIdCriterion.class).getEntityID();
             log.debug("Attempting to retrieve credentials from metadata configuration for entity: {}", entityID);
             Set<String> trustedKeys;
 

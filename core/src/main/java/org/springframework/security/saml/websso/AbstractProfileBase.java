@@ -34,7 +34,7 @@ import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.credential.UsageType;
-import org.opensaml.xml.security.criteria.EntityIDCriteria;
+import org.opensaml.xml.security.criteria.EntityIdCriterion;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.opensaml.xmlsec.signature.Signature;
 import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
@@ -264,7 +264,7 @@ public abstract class AbstractProfileBase implements InitializingBean {
         SAMLSignatureProfileValidator validator = new SAMLSignatureProfileValidator();
         validator.validate(signature);
         CriteriaSet criteriaSet = new CriteriaSet();
-        criteriaSet.add(new EntityIDCriteria(IDPEntityID));
+        criteriaSet.add(new EntityIdCriterion(IDPEntityID));
         criteriaSet.add(new MetadataCriteria(IDPSSODescriptor.DEFAULT_ELEMENT_NAME, SAMLConstants.SAML20P_NS));
         criteriaSet.add(new UsageCriteria(UsageType.SIGNING));
         log.debug("Verifying signature", signature);
