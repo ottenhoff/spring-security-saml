@@ -19,7 +19,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPRedirectDeflateDecoder;
 import org.opensaml.saml2.binding.encoding.HTTPRedirectDeflateEncoder;
 import org.opensaml.saml2.binding.security.SAML2HTTPRedirectDeflateSignatureRule;
-import org.opensaml.ws.message.decoder.MessageDecoder;
+import org.opensaml.messaging.decoder.MessageDecoder;
 import org.opensaml.ws.message.encoder.MessageEncoder;
 import org.opensaml.ws.security.SecurityPolicyRule;
 import org.opensaml.ws.transport.InTransport;

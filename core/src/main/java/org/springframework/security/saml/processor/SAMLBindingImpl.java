@@ -14,7 +14,7 @@
  */
 package org.springframework.security.saml.processor;
 
-import org.opensaml.ws.message.decoder.MessageDecoder;
+import org.opensaml.messaging.decoder.MessageDecoder;
 import org.opensaml.ws.message.encoder.MessageEncoder;
 import org.opensaml.ws.security.SecurityPolicyRule;
 import net.shibboleth.utilities.java.support.xml.ParserPool;

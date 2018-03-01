@@ -19,7 +19,7 @@ import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.Endpoint;
 import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
-import org.opensaml.ws.message.decoder.MessageDecoder;
+import org.opensaml.messaging.decoder.MessageDecoder;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.ws.message.encoder.MessageEncoder;
 import org.opensaml.messaging.encoder.MessageEncodingException;

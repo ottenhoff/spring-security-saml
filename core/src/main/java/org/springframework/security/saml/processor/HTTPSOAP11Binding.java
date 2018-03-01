@@ -18,7 +18,7 @@ import org.opensaml.common.binding.security.SAMLProtocolMessageXMLSignatureSecur
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml2.binding.decoding.HTTPSOAP11DecoderImpl;
 import org.opensaml.saml2.binding.encoding.HTTPSOAP11Encoder;
-import org.opensaml.ws.message.decoder.MessageDecoder;
+import org.opensaml.messaging.decoder.MessageDecoder;
 import org.opensaml.ws.message.encoder.MessageEncoder;
 import org.opensaml.ws.security.SecurityPolicyRule;
 import org.opensaml.ws.transport.InTransport;
