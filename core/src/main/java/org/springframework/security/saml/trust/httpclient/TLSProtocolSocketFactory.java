@@ -6,7 +6,7 @@ import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import org.opensaml.security.trust.TrustEngine;
-import org.opensaml.xml.security.x509.*;
+import org.opensaml.security.x509.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
