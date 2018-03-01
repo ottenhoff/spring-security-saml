@@ -40,7 +40,7 @@ import org.opensaml.xml.security.trust.TrustEngine;
 import org.opensaml.xml.security.x509.*;
 import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
 import org.opensaml.xml.signature.impl.ExplicitKeySignatureTrustEngine;
-import org.opensaml.xml.signature.impl.PKIXSignatureTrustEngine;
+import org.opensaml.xmlsec.signature.support.impl.PKIXSignatureTrustEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
