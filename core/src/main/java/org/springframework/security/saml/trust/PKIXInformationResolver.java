@@ -31,7 +31,7 @@ import org.opensaml.xml.security.x509.PKIXValidationInformation;
 import org.opensaml.xml.security.x509.PKIXValidationInformationResolver;
 import org.opensaml.xml.security.x509.X509Credential;
 import net.shibboleth.utilities.java.support.primitive.StringSupport;
-import org.opensaml.security.MetadataCredentialResolver;
+import org.opensaml.saml.security.impl.MetadataCredentialResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.saml.key.KeyManager;

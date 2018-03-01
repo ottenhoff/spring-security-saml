@@ -23,7 +23,7 @@ import org.opensaml.saml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml.saml2.metadata.RoleDescriptor;
 import org.opensaml.saml.saml2.metadata.SPSSODescriptor;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
-import org.opensaml.security.MetadataCredentialResolver;
+import org.opensaml.saml.security.impl.MetadataCredentialResolver;
 import org.opensaml.security.messaging.ServletRequestX509CredentialAdapter;
 import org.opensaml.ws.transport.http.HTTPInTransport;
 import org.opensaml.ws.transport.http.HttpServletRequestAdapter;

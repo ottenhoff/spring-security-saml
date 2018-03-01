@@ -34,7 +34,7 @@ import java.util.LinkedList;
  *
  * @author Vladimir Schafer
  */
-public class MetadataCredentialResolver extends org.opensaml.security.MetadataCredentialResolver {
+public class MetadataCredentialResolver extends org.opensaml.saml.security.impl.MetadataCredentialResolver {
 
     /**
      * Class logger.
