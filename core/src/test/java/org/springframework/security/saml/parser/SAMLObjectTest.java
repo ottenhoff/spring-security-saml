@@ -20,7 +20,7 @@ import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml.saml2.core.Assertion;
 import org.opensaml.saml.saml2.core.impl.ActionImpl;
 import org.opensaml.messaging.encoder.MessageEncodingException;
-import org.opensaml.xml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.core.xml.io.Marshaller;
 import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.core.xml.io.Unmarshaller;

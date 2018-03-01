@@ -16,7 +16,7 @@
 
 package org.opensaml;
 
-import org.opensaml.xml.ConfigurationException;
+import org.opensaml.core.config.ConfigurationException;
 
 public class PaosBootstrap extends DefaultBootstrap {
     

@@ -17,7 +17,7 @@ package org.springframework.security.saml.metadata;
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.*;
 import org.opensaml.saml.metadata.resolver.impl.*;
-import org.opensaml.xml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.security.x509.*;
 import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;

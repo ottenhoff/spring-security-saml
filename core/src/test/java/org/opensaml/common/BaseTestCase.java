@@ -21,7 +21,7 @@ import javax.xml.namespace.QName;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.opensaml.core.config.Configuration;
-import org.opensaml.xml.ConfigurationException;
+import org.opensaml.core.config.ConfigurationException;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.XMLObjectBuilder;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;

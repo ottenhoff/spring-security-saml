@@ -16,7 +16,7 @@
 package org.springframework.security.saml.parser;
 
 import org.opensaml.messaging.decoder.MessageDecodingException;
-import org.opensaml.xml.Configuration;
+import org.opensaml.core.config.Configuration;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.io.Unmarshaller;
 import org.opensaml.core.xml.io.UnmarshallingException;

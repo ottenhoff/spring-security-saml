@@ -19,7 +19,7 @@ import org.opensaml.saml.saml2.core.*;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xmlsec.encryption.support.DecryptionException;
 import org.opensaml.xmlsec.signature.KeyInfo;
-import org.opensaml.xml.util.Base64;
+import net.shibboleth.utilities.java.support.codec.Base64Support;
 import org.springframework.security.saml.SAMLConstants;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.util.SAMLUtil;
@@ -166,7 +166,7 @@ public class WebSSOProfileConsumerHoKImpl extends WebSSOProfileConsumerImpl impl
         }
 
         try {
-            return Base64.encodeBytes(context.getPeerSSLCredential().getEntityCertificate().getEncoded());
+            return Base64Support.encode(context.getPeerSSLCredential().getEntityCertificate().getEncoded());
         } catch (CertificateEncodingException e) {
             throw new SAMLException("Error base64 encoding peer certificate");
         }

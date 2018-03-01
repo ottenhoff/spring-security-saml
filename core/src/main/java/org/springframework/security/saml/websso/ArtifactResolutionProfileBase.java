@@ -33,7 +33,7 @@ import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.decoder.MessageDecodingException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
-import org.opensaml.xml.util.Base64;
+import net.shibboleth.utilities.java.support.codec.Base64Support;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.metadata.ExtendedMetadata;
 import org.springframework.security.saml.util.SAMLUtil;
