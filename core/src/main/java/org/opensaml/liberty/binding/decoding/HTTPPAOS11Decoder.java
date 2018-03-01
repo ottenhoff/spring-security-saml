@@ -28,7 +28,7 @@ import org.opensaml.saml2.ecp.RelayState;
 import org.opensaml.saml2.ecp.impl.RelayStateImpl;
 import org.opensaml.ws.message.MessageContext;
 import org.opensaml.messaging.decoder.MessageDecodingException;
-import org.opensaml.ws.soap.soap11.Envelope;
+import org.opensaml.soap.soap11.Envelope;
 import org.opensaml.core.xml.XMLObject;
 import net.shibboleth.utilities.java.support.xml.ParserPool;
 

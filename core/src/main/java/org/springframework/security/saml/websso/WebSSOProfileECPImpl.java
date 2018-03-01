@@ -26,7 +26,7 @@ import org.opensaml.saml.saml2.metadata.SingleSignOnService;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.ws.soap.common.SOAPObjectBuilder;
-import org.opensaml.ws.soap.soap11.Envelope;
+import org.opensaml.soap.soap11.Envelope;
 import org.opensaml.ws.soap.util.SOAPHelper;
 import org.opensaml.ws.transport.http.HTTPOutTransport;
 import org.springframework.security.saml.context.SAMLMessageContext;
