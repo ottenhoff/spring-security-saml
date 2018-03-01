@@ -34,7 +34,7 @@ import org.opensaml.core.xml.io.Marshaller;
 import org.opensaml.core.xml.io.MarshallingException;
 import org.opensaml.security.credential.Credential;
 import org.opensaml.xmlsec.signature.*;
-import org.opensaml.util.StringSupport;
+import net.shibboleth.utilities.java.support.primitive.StringSupport;
 import org.opensaml.xmlsec.signature.support.SignatureSupport;
 
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
