@@ -21,7 +21,7 @@ import java.util.List;
 import org.opensaml.common.impl.AbstractSAMLObject;
 import org.opensaml.liberty.paos.Response;
 import org.opensaml.core.xml.XMLObject;
-import org.opensaml.xml.schema.XSBooleanValue;
+import org.opensaml.core.xml.schema.XSBooleanValue;
 
 public class ResponseImpl extends AbstractSAMLObject implements Response {
     

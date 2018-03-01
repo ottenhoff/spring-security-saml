@@ -22,7 +22,7 @@ import org.opensaml.common.impl.AbstractSAMLObjectUnmarshaller;
 import org.opensaml.liberty.paos.Request;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.io.UnmarshallingException;
-import org.opensaml.xml.schema.XSBooleanValue;
+import org.opensaml.core.xml.schema.XSBooleanValue;
 import net.shibboleth.utilities.java.support.xml.SerializeSupport;
 import org.w3c.dom.Attr;
 

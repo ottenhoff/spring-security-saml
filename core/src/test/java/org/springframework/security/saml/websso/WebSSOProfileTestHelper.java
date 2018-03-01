@@ -5,7 +5,7 @@ import org.opensaml.core.config.Configuration;
 import org.opensaml.saml.common.SAMLObjectBuilder;
 import org.opensaml.saml.saml2.core.*;
 import org.opensaml.core.xml.XMLObjectBuilderFactory;
-import org.opensaml.xml.schema.XSString;
+import org.opensaml.core.xml.schema.XSString;
 
 import java.util.Collection;
 

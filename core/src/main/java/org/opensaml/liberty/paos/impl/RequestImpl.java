@@ -21,7 +21,7 @@ import java.util.List;
 import org.opensaml.common.impl.AbstractSAMLObject;
 import org.opensaml.liberty.paos.Request;
 import org.opensaml.core.xml.XMLObject;
-import org.opensaml.xml.schema.XSBooleanValue;
+import org.opensaml.core.xml.schema.XSBooleanValue;
 
 public class RequestImpl extends AbstractSAMLObject implements Request {
     
