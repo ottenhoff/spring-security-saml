@@ -38,7 +38,6 @@ import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.security.criteria.UsageCriteria;
 import org.opensaml.xmlsec.signature.Signature;
 import org.opensaml.xmlsec.signature.support.SignatureTrustEngine;
-import org.opensaml.xml.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -50,6 +49,8 @@ import org.springframework.security.saml.util.SAMLUtil;
 import org.springframework.util.Assert;
 
 import java.util.Random;
+
+import javax.net.ssl.SSLPeerUnverifiedException;
 
 /**
  * Base superclass for classes implementing processing of SAML messages.
@@ -269,7 +270,7 @@ public abstract class AbstractProfileBase implements InitializingBean {
         log.debug("Verifying signature", signature);
 
         if (!trustEngine.validate(signature, criteriaSet)) {
-            throw new ValidationException("Signature is not trusted or invalid");
+            throw new SSLPeerUnverifiedException("Signature is not trusted or invalid");
         }
 
     }
