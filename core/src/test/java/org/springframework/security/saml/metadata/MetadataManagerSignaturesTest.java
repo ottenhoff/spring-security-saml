@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.saml.saml2.metadata.provider.FilesystemMetadataProvider;
+import org.opensaml.saml.metadata.resolver.impl.FilesystemMetadataProvider;
 import net.shibboleth.utilities.java.support.xml.ParserPool;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

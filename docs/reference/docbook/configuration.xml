@@ -327,7 +327,7 @@ log4j.logger.PROTOCOL_MESSAGE=DEBUG</programlisting></para>
 					  <para>It is recommended to use the administration UI which also generates all the Spring declarations ready for inclusion in your <emphasis>securityContext.xml</emphasis>.</para>
 					  <para>Configuration for pre-configured local metdadata can look for example like this: <programlisting><![CDATA[<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
 	<constructor-arg>
-		<bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+		<bean class="org.opensaml.saml.metadata.resolver.impl.ResourceBackedMetadataResolver">
 			<constructor-arg>
 				<bean class="java.util.Timer"/>
 			</constructor-arg>
@@ -417,8 +417,8 @@ log4j.logger.PROTOCOL_MESSAGE=DEBUG</programlisting></para>
 	</constructor-arg>
 </bean>]]></programlisting></para>
 				<para>Metadata is automatically refreshed in intervals specified by properties <emphasis>minRefreshDelay</emphasis> and <emphasis>maxRefreshDelay</emphasis> of the <emphasis>MetadataProvider</emphasis> bean.</para>
-				<para>Alternatively class <emphasis>org.opensaml.saml2.metadata.provider.FileBackedHTTPMetadataProvider</emphasis> can be used to provide a backup in case URL is temporarily unavailable. File
-				to use as backup is specified as third argument in the <emphasis>MetadataProvider</emphasis> bean constructor.</para>
+				<para>Alternatively class <emphasis>org.opensaml.saml.metadata.resolver.impl.FileBackedHTTPMetadataResolver</emphasis> can be used to provide a backup in case URL is temporarily unavailable. File
+				to use as backup is specified as third argument in the <emphasis>MetadataResolver</emphasis> bean constructor.</para>
 			</section>
             <section id="configuration-metadata-https">
                 <title>HTTP-based metadata provider with SSL</title>
@@ -426,7 +426,7 @@ log4j.logger.PROTOCOL_MESSAGE=DEBUG</programlisting></para>
                 <programlisting><![CDATA[<bean class="org.springframework.security.saml.trust.httpclient.TLSProtocolConfigurer"/>]]></programlisting></para>
                 <para>The <emphasis>TLSProtocolConfigurer</emphasis> instantiates <emphasis>TLSProtocolSocketFactory</emphasis> and registers is as a default socket factory for https protocol inside the HTTP Client used for metadata loading.
                 The socket factory uses all public certificates present in the <emphasis>keyStore</emphasis> as trust anchors for PKIX validation. The used keys can be constrained with property <emphasis>trustedKeys</emphasis>.</para>
-                <para>The socket factory configured in this fashion is used for all metadata providers. It is possible to customize metadata loading on a per-provider basis by adding a configured HttpClient instance to the HTTPMetadataProvider constructor.</para>
+                <para>The socket factory configured in this fashion is used for all metadata providers. It is possible to customize metadata loading on a per-provider basis by adding a configured HttpClient instance to the HTTPMetadataResolver constructor.</para>
             </section>
 			<section id="configuration-metadata-idp-signature">
 				<title>Metadata signature verification</title>

@@ -1,7 +1,7 @@
 package org.springframework.security.saml.metadata;
 
 import org.joda.time.DateTime;
-import org.opensaml.saml.saml2.metadata.provider.FilesystemMetadataProvider;
+import org.opensaml.saml.metadata.resolver.impl.FilesystemMetadataProvider;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
 
 import java.io.File;

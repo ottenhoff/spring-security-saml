@@ -16,7 +16,7 @@ package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.common.xml.SAMLConstants;
 import org.opensaml.saml.saml2.metadata.*;
-import org.opensaml.saml.saml2.metadata.provider.*;
+import org.opensaml.saml.metadata.resolver.impl.*;
 import org.opensaml.xml.Configuration;
 import org.opensaml.core.xml.XMLObject;
 import org.opensaml.xml.security.x509.*;
@@ -504,7 +504,7 @@ public class MetadataManager extends ChainingMetadataProvider implements Extende
      * all filters required for metadata verification. It must also be ensured that metadata provider is ready to be used
      * after call to this method.
      * <p>
-     * Each provider must extend AbstractMetadataProvider or be of ExtendedMetadataDelegate type.
+     * Each provider must extend AbstractMetadataResolver or be of ExtendedMetadataDelegate type.
      * <p>
      * By default a SignatureValidationFilter is added together with any existing filters.
      *

@@ -17,7 +17,7 @@ package org.springframework.security.saml.metadata;
 import org.opensaml.saml.saml2.metadata.EntitiesDescriptor;
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml.saml2.metadata.RoleDescriptor;
-import org.opensaml.saml.saml2.metadata.provider.*;
+import org.opensaml.saml.metadata.resolver.impl.*;
 import org.opensaml.core.xml.XMLObject;
 import org.springframework.util.Assert;
 

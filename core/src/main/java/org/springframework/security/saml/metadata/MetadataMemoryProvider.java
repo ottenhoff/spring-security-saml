@@ -15,7 +15,7 @@
 package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml.saml2.metadata.provider.AbstractMetadataProvider;
+import org.opensaml.saml.metadata.resolver.impl.AbstractMetadataResolver;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.opensaml.core.xml.XMLObject;
 
@@ -24,7 +24,7 @@ import org.opensaml.core.xml.XMLObject;
  *
  * @author Vladimir Sch�fer
  */
-public class MetadataMemoryProvider extends AbstractMetadataProvider {
+public class MetadataMemoryProvider extends AbstractMetadataResolver {
 
     /**
      * Preconfigured descriptor

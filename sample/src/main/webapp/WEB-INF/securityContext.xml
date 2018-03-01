@@ -141,7 +141,7 @@
                 <!-- Example of classpath metadata with Extended Metadata -->
                 <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
                     <constructor-arg>
-                        <bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+                        <bean class="org.opensaml.saml.metadata.resolver.impl.ResourceBackedMetadataResolver">
                             <constructor-arg>
                                 <bean class="java.util.Timer"/>
                             </constructor-arg>

@@ -15,8 +15,8 @@
 package org.springframework.security.saml.metadata;
 
 import org.opensaml.saml.saml2.metadata.EntityDescriptor;
-import org.opensaml.saml.saml2.metadata.provider.AbstractMetadataProvider;
-import org.opensaml.saml.saml2.metadata.provider.MetadataProvider;
+import org.opensaml.saml.metadata.resolver.impl.AbstractMetadataResolver;
+import org.opensaml.saml.metadata.resolver.impl.MetadataProvider;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -161,12 +161,12 @@ public class ExtendedMetadataDelegate extends AbstractMetadataDelegate implement
      * @throws ResolverException in case initialization fails
      */
     public void initialize() throws ResolverException {
-        if (getDelegate() instanceof AbstractMetadataProvider) {
+        if (getDelegate() instanceof AbstractMetadataResolver) {
             log.debug("Initializing delegate");
-            AbstractMetadataProvider provider = (AbstractMetadataProvider) getDelegate();
+            AbstractMetadataResolver provider = (AbstractMetadataResolver) getDelegate();
             provider.initialize();
         } else {
-            log.debug("Cannot initialize delegate, doesn't extend AbstractMetadataProvider");
+            log.debug("Cannot initialize delegate, doesn't extend AbstractMetadataResolver");
         }
     }
 
@@ -174,12 +174,12 @@ public class ExtendedMetadataDelegate extends AbstractMetadataDelegate implement
      * Method destroys the metadata delegate.
      */
     public void destroy() {
-        if (getDelegate() instanceof AbstractMetadataProvider) {
+        if (getDelegate() instanceof AbstractMetadataResolver) {
             log.debug("Destroying delegate");
-            AbstractMetadataProvider provider = (AbstractMetadataProvider) getDelegate();
+            AbstractMetadataResolver provider = (AbstractMetadataResolver) getDelegate();
             provider.destroy();
         } else {
-            log.debug("Cannot destroy delegate, doesn't extend AbstractMetadataProvider");
+            log.debug("Cannot destroy delegate, doesn't extend AbstractMetadataResolver");
         }
     }
 

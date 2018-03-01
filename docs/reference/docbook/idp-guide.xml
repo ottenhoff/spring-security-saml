@@ -47,7 +47,7 @@
 						<para>Modify bean <emphasis>metadata</emphasis> in <emphasis>sample/src/main/webapp/WEB-INF/securityContext.xml</emphasis> and replace <emphasis>classpath:security/idp.xml</emphasis> with <emphasis>classpath:security/FederationMetadata.xml</emphasis> and add property <emphasis>metadataTrustCheck</emphasis> to <emphasis>false</emphasis> to skip signature validation:
 <programlisting><![CDATA[<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
 	<constructor-arg>
-		<bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+		<bean class="org.opensaml.saml.metadata.resolver.impl.ResourceBackedMetadataResolver">
 			<constructor-arg>
 				<bean class="java.util.Timer"/>
 			</constructor-arg>
@@ -235,7 +235,7 @@
 					<para>In Spring SAML modify bean <emphasis>metadata</emphasis> in <emphasis>sample/src/main/webapp/WEB-INF/securityContext.xml</emphasis> and replace <emphasis>classpath:security/idp.xml</emphasis> with <emphasis>classpath:security/okta.xml</emphasis>:
 						<programlisting><![CDATA[<bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
     <constructor-arg>
-        <bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+        <bean class="org.opensaml.saml.metadata.resolver.impl.ResourceBackedMetadataResolver">
             <constructor-arg>
                 <bean class="java.util.Timer"/>
             </constructor-arg>
